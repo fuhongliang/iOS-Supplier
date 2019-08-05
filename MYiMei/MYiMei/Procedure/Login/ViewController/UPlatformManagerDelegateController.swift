@@ -20,6 +20,7 @@ class UPlatformManagerDelegateController: UBaseViewController {
         
         let bundlePath = Bundle.main.bundlePath
         let path = "file://\(bundlePath)/HTML_Files/protocol.html"
+        
         guard let url = URL(string: path) else {
             return
         }

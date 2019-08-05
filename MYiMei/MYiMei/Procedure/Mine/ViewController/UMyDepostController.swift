@@ -112,7 +112,7 @@ extension UMyDepostController: UITableViewDelegate, UITableViewDataSource {
         if(indexPath.section == 0){
             return 99
         }else if(indexPath.section == 1){
-            return 150
+            return 165
         }else {
             return 350
         }
@@ -130,10 +130,24 @@ extension UMyDepostController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
+        return section == 1 ? 44 : CGFloat.leastNormalMagnitude
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let tipView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: tableView.frame.size.height))
+            tipView.backgroundColor = UIColor.white
+            let label = UILabel()
+            label.text = "转账凭证"
+            label.textColor = UIColor.black
+            label.font = UIFont.systemFont(ofSize: 15)
+            tipView.addSubview(label)
+            label.snp.makeConstraints { (ConstraintMaker) in
+                ConstraintMaker.left.equalToSuperview().offset(15)
+                ConstraintMaker.top.equalToSuperview().offset(19)
+            }
+            return tipView
+        }
         return nil
     }
 

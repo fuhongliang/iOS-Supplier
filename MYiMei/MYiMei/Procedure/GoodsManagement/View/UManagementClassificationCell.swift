@@ -18,7 +18,7 @@ class UManagementClassificationCell: UBaseTableViewCell {
         let seriesLaber = UILabel()
         seriesLaber.text = "现代系列"
         seriesLaber.textColor = UIColor.hex(hexString: "#666666")
-        seriesLaber.font = UIFont.systemFont(ofSize: 17)
+        seriesLaber.font = UIFont.systemFont(ofSize: 15)
         return seriesLaber
     }()
     //按钮

@@ -17,9 +17,9 @@ class UDepostPhotoCell: UBaseTableViewCell {
         self.addSubview(depostPhoto)
         depostPhoto.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.left.equalToSuperview().offset(15)
-            ConstraintMaker.top.equalToSuperview().offset(15)
+            ConstraintMaker.bottom.equalToSuperview().offset(-15)
             ConstraintMaker.right.equalToSuperview().offset(-15)
-            ConstraintMaker.height.equalTo(130)
+            ConstraintMaker.height.equalTo(150)
         }
     }
 }

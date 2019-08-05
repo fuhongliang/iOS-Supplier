@@ -167,7 +167,7 @@
 		DC8708D122D9B22D009B92F2 /* ExpressListResponesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8708D022D9B22D009B92F2 /* ExpressListResponesModel.swift */; };
 		DC8815F722F02B9300901D71 /* URefundOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8815F622F02B9300901D71 /* URefundOrderController.swift */; };
 		DC8815F922F0387900901D71 /* UBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8815F822F0387900901D71 /* UBaseCollectionViewCell.swift */; };
-		DCAB0BB022F56F550086005C /* HTML_Files in Resources */ = {isa = PBXBuildFile; fileRef = DCAB0BAF22F56F550086005C /* HTML_Files */; };
+		DCAB0BB422F57EF30086005C /* HTML_Files in Resources */ = {isa = PBXBuildFile; fileRef = DCAB0BB322F57EF30086005C /* HTML_Files */; };
 		DCCAFD1E22F29BC900525611 /* UCashOutRecordListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAFD1D22F29BC900525611 /* UCashOutRecordListController.swift */; };
 		DCCAFD2222F2F05B00525611 /* ApplyCashOutTypeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAFD2122F2F05B00525611 /* ApplyCashOutTypeDataModel.swift */; };
 		DCCAFD2422F2F66400525611 /* UBankCardWithdrawController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAFD2322F2F66400525611 /* UBankCardWithdrawController.swift */; };
@@ -374,7 +374,7 @@
 		DC8708D022D9B22D009B92F2 /* ExpressListResponesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressListResponesModel.swift; sourceTree = "<group>"; };
 		DC8815F622F02B9300901D71 /* URefundOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URefundOrderController.swift; sourceTree = "<group>"; };
 		DC8815F822F0387900901D71 /* UBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		DCAB0BAF22F56F550086005C /* HTML_Files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HTML_Files; path = "../../../Library/Containers/com.tencent.WeWorkMac/Data/Library/Application Support/WXWork/Data/1688852695698169/Cache/File/2019-08/HTML_Files"; sourceTree = "<group>"; };
+		DCAB0BB322F57EF30086005C /* HTML_Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML_Files; sourceTree = "<group>"; };
 		DCCAFD1D22F29BC900525611 /* UCashOutRecordListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCashOutRecordListController.swift; sourceTree = "<group>"; };
 		DCCAFD2122F2F05B00525611 /* ApplyCashOutTypeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCashOutTypeDataModel.swift; sourceTree = "<group>"; };
 		DCCAFD2322F2F66400525611 /* UBankCardWithdrawController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBankCardWithdrawController.swift; sourceTree = "<group>"; };
@@ -578,7 +578,7 @@
 		7BAB34ED22C0AE1200154D36 /* MYiMei */ = {
 			isa = PBXGroup;
 			children = (
-				DCAB0BAF22F56F550086005C /* HTML_Files */,
+				DCAB0BB322F57EF30086005C /* HTML_Files */,
 				7B3127E822E1C89E0083D544 /* MYiMei.entitlements */,
 				7B2DE2AC22D5995200AD6FDD /* LocationHelper.swift */,
 				DC7E297822D575B700AC3F21 /* ImagePressHelper.swift */,
@@ -1062,8 +1062,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAB0BB422F57EF30086005C /* HTML_Files in Resources */,
 				7BAB34F922C0AE1400154D36 /* LaunchScreen.storyboard in Resources */,
-				DCAB0BB022F56F550086005C /* HTML_Files in Resources */,
 				0AB057D322DC1934002B7E40 /* Assets.xcassets in Resources */,
 				7BAB34F422C0AE1200154D36 /* Main.storyboard in Resources */,
 			);
