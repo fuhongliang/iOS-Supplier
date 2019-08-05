@@ -1,0 +1,36 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+platform :ios, '9.1'
+
+target 'MYiMei' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  inhibit_all_warnings!
+  # Pods for MYiMei
+
+pod 'Then'
+pod 'SnapKit', '~> 5.0.0'
+pod 'Moya','12.0.1'
+pod 'HandyJSON','5.0.0-beta'
+pod 'Kingfisher'
+pod 'MJRefresh'
+pod 'MBProgressHUD'
+pod 'Reusable'
+pod 'IQKeyboardManagerSwift'
+pod 'EmptyDataSet-Swift'
+pod 'KMPlaceholderTextView', '~> 1.4.0'
+pod 'BSImagePicker', '~> 2.10.0'
+pod 'TLPhotoPicker', '~> 1.8.9'
+
+pod 'AMap3DMap'
+pod 'AMapSearch'
+pod 'SCLAlertView' #弹窗
+pod 'JXSegmentedView' #滑动页面
+pod 'Bugtags'
+pod 'JPush'
+#pod 'FTPopOverMenu_Swift', '~> 0.2.0' #弹出菜单
+pod 'Charts' #图表
+pod "RichEditorView", :path => "../"
+
+end
+
