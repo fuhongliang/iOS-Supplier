@@ -19,12 +19,12 @@ class UHomeMessageManagementCell: BaseView {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 12)
         tl.textColor = UIColor.hex(hexString: "#666666")
-        tl.text = "消息管理"
+        tl.text = "联系平台"
         tl.isUserInteractionEnabled = true
         return tl
     }()
     func configUI() {
-        menuIcon.image = UIImage.init(named: "homeMessageManagementCell")
+        menuIcon.image = UIImage.init(named: "contact_platform")
         self.addSubview(menuIcon)
         menuIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.centerX.equalToSuperview()

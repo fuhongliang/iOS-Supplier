@@ -346,9 +346,25 @@ extension UGoodsDetailsController: UGoodsDetailViewDelegate,TLPhotosPickerLogDel
         }
         // Simple Option Picker with selected index
 
-        RPicker.selectOption(title: "", hideCancel: true, dataArray: dummyList, selectedIndex: curCatIndex) { (selctedText, atIndex) in
-            self.curCatIndex = atIndex
-            self.goodsDetailView.choosePlatformClassBtn.setTitle(selctedText, for: UIControl.State.normal)
+//        RPicker.selectOption(title: "选择商品分类", hideCancel: false, dataArray: dummyList, selectedIndex: curCatIndex) { (selctedText, atIndex) in
+//            self.curCatIndex = atIndex
+//            self.goodsDetailView.choosePlatformClassBtn.setTitle(selctedText, for: UIControl.State.normal)
+//        }
+        
+        let dataPicker = BPicker(onePickerList: dummyList) { [weak self] (selectText, selectIndex) in
+            /// 回调显示方法
+            print(selectText[0])
+            self?.curCatIndex = selectIndex[0]
+            self?.goodsDetailView.choosePlatformClassBtn.setTitle(selectText[0], for: UIControl.State.normal)
+        }
+        self.definesPresentationContext = true
+        
+        dataPicker.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        dataPicker.picker.reloadAllComponents()
+        /// 弹出时滚动到当前已选中的内容
+        self.present(dataPicker, animated: true) {
+            dataPicker.picker.selectRow(self.curCatIndex, inComponent: 0, animated: true)
+            print("选中了")
         }
     }
 
@@ -357,11 +373,23 @@ extension UGoodsDetailsController: UGoodsDetailViewDelegate,TLPhotosPickerLogDel
         for item in goodscateList{
             dummyList.append(item.name!)
         }
-
-        RPicker.selectOption(title: "", hideCancel: true, dataArray: dummyList, selectedIndex: curGoodsCatIndex) { (selctedText, atIndex) in
-            self.curGoodsCatIndex = atIndex
-            self.goodsDetailView.choosegoodsClassBtn.setTitle(selctedText, for: UIControl.State.normal)
+        
+        let dataPicker = BPicker(onePickerList: dummyList) { [weak self] (selectText, selectIndex) in
+            /// 回调显示方法
+            print(selectText[0])
+            self?.curGoodsCatIndex = selectIndex[0]
+            self?.goodsDetailView.choosegoodsClassBtn.setTitle(selectText[0], for: UIControl.State.normal)
         }
+        self.definesPresentationContext = true
+        
+        dataPicker.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        dataPicker.picker.reloadAllComponents()
+        /// 弹出时滚动到当前已选中的内容
+        self.present(dataPicker, animated: true) {
+            dataPicker.picker.selectRow(self.curGoodsCatIndex, inComponent: 0, animated: true)
+            print("选中了")
+        }
+        
     }
 
     func tapChooseGoodsTagAction(tag: UIButton) {

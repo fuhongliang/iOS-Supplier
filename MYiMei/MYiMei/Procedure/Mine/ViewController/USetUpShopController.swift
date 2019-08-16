@@ -11,8 +11,11 @@ import Photos
 import TLPhotoPicker
 
 class USetUpShopController: UBaseViewController ,TLPhotosPickerViewControllerDelegate{
+    
     var selectedAssets = [TLPHAsset]()
-    fileprivate var services = APIUserServices()
+    
+    private var services = APIUserServices()
+    
     private lazy var myArray: Array = {
         return [
             [
@@ -29,6 +32,10 @@ class USetUpShopController: UBaseViewController ,TLPhotosPickerViewControllerDel
             ],
             [
                 ["instructions":"店铺背景（顶部）","content":mchModel.header_bg]
+            ],
+            [
+                ["instructions":"商家首页背景颜色","content":mchModel.mch_color],
+                ["instructions":"商家首页头部颜色","content":mchModel.header_color]
             ]
         ]
     }()
@@ -47,6 +54,7 @@ class USetUpShopController: UBaseViewController ,TLPhotosPickerViewControllerDel
         tw.register(cellType: UShopLabelCell.self)
         tw.register(cellType: UShopLabelImgCell.self)
         tw.register(cellType: UShopLabelNotArrowCell.self)
+        tw.register(cellType: UShopLabelTextFieldCell.self)
         return tw
     }()
     
@@ -93,6 +101,10 @@ class USetUpShopController: UBaseViewController ,TLPhotosPickerViewControllerDel
             ],
             [
                 ["instructions":"店铺背景（顶部）","content":mchModel.header_bg]
+            ],
+            [
+                ["instructions":"商家首页背景颜色","content":mchModel.mch_color],
+                ["instructions":"商家首页头部颜色","content":mchModel.header_color]
             ]
         ]
     }
@@ -229,12 +241,9 @@ extension USetUpShopController: UITableViewDelegate, UITableViewDataSource,TLPho
         if(indexPath.row == 0){
             if(indexPath.section == 1 || indexPath.section == 2){
                 return 55
-            }else{
-                 return 44
             }
-        }else{
-             return 44
         }
+        return 44
     }
     
     //MARK:每组cell的数量
@@ -270,17 +279,17 @@ extension USetUpShopController: UITableViewDelegate, UITableViewDataSource,TLPho
           
         } else if (indexPath.section == 2){
             let cell = getImgCell(cellForRowAt: indexPath)
-            //图片数据对应没写
+            return cell
+        } else if (indexPath.section == 3){
+            let cell = getLabelCell(cellForRowAt: indexPath)
             return cell
         } else {
             if (indexPath.row == 1) {
                 let cell = getLabelNotArrowCell(cellForRowAt: indexPath)
                 cell.selectionStyle = .none
-                //店铺信息没写
                 return cell
             } else {
                 let cell = getLabelCell(cellForRowAt: indexPath)
-                //店铺信息没写
                 return cell
             }
         }
@@ -290,6 +299,17 @@ extension USetUpShopController: UITableViewDelegate, UITableViewDataSource,TLPho
     //MARK:点击事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        //TODO 枚举类型优化
+        if indexPath.section == 3 {
+            //不处理
+            let sectionArray = myArray[indexPath.section]
+            let dict: [String: String] = sectionArray[indexPath.row] as! [String : String]
+            let vc = UModifySetUpShopController(paramIndex: indexPath.section*2+indexPath.row, paramValue:  dict["content"] ?? "")
+            vc.title = dict["instructions"]
+            navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         
         if(indexPath.row == 0){
             if(indexPath.section != 0){
@@ -378,6 +398,17 @@ extension USetUpShopController: UITableViewDelegate, UITableViewDataSource,TLPho
             let url = URL(string: uul ?? "")
             cell.shopImg.kf.setImage(with: url)
         }
+        return cell
+    }
+    
+    //MARK:获取不带箭头的输入框cell
+    func getLabelTextFieldCell(cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UShopLabelTextFieldCell.self)
+        cell.selectionStyle = .default
+        let sectionArray = myArray[indexPath.section]
+        let dict = sectionArray[indexPath.row]
+        cell.instructionsLabel.text = dict["instructions"] ?? ""
+        cell.contentLabel.text = "#\(String(describing: dict["content"] ?? ""))"
         return cell
     }
 }

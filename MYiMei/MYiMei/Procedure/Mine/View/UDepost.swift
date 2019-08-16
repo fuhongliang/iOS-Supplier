@@ -134,7 +134,7 @@ class UDepost: BaseView {
             ConstraintMaker.height.equalTo(150)
         }
 
-        uploadPicBtn.addTarget(self, action: #selector(choosePicAction), for: UIControl.Event.touchDown)
+        uploadPicBtn.addTarget(self, action: #selector(choosePicAction), for: UIControl.Event.touchUpInside)
 
 
         //MARK:保证金背景
@@ -183,7 +183,7 @@ class UDepost: BaseView {
             ConstraintMaker.height.equalTo(44)
         }
 
-        submitBtn.addTarget(self, action: #selector(pushAction), for: UIControl.Event.touchDown)
+        submitBtn.addTarget(self, action: #selector(pushAction), for: UIControl.Event.touchUpInside)
         
     }
 

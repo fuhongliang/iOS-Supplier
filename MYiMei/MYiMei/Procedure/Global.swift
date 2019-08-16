@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 import MJRefresh
-
+import SCLAlertView
 
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
@@ -40,6 +40,22 @@ extension UIColor {
     class var theme: UIColor {
         return UIColor(r: 28, g: 152, b: 246)
     }
+}
+
+//显示弹窗
+func showAlert(title:String = "提示", subTitle:String = "", block:((_ alertView:SCLAlertView) -> ())?) {
+    let style = SCLAlertView.SCLAppearance(
+        kWindowWidth: 300, kTitleFont: UIFont(name: "HelveticaNeue-Bold", size: 20)!,
+        kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
+        kButtonFont: UIFont(name: "HelveticaNeue", size: 18)!,
+        showCloseButton: false,
+        showCircularIcon: false,
+        hideWhenBackgroundViewIsTapped:true,
+        buttonsLayout: .horizontal
+    )
+    let alertView = SCLAlertView(appearance: style)
+    block?(alertView)
+    alertView.showEdit(title, subTitle: subTitle,animationStyle:.noAnimation)
 }
 
 var topVC: UIViewController? {

@@ -42,7 +42,7 @@ class UDepositAgreementView: BaseView {
             ConstraintMaker.height.equalTo(44)
             ConstraintMaker.bottom.equalToSuperview().offset(-59)
         }
-        agreeBtn.addTarget(self, action: #selector(checkAgreeMent), for: UIControl.Event.touchDown)
+        agreeBtn.addTarget(self, action: #selector(checkAgreeMent), for: UIControl.Event.touchUpInside)
         
         checkButton.setBackgroundImage(UIImage.init(named: "uncheck_btn"), for: .normal)
         checkButton.setBackgroundImage(UIImage.init(named: "check_btn"), for: .selected)

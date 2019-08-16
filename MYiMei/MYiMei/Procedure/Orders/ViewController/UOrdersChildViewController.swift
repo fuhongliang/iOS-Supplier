@@ -18,11 +18,6 @@ class UOrdersChildViewController: UBaseViewController {
         return JXSegmentedListContainerView(dataSource: self)
     }()
     
-    /*
-     判断是否当前的订单页面是什么状态
-     0 -> 普通订单
-     1 -> 维权订单
-     */
     var listType = 0
     
     var titles = [String]()
@@ -90,27 +85,14 @@ extension UOrdersChildViewController: JXSegmentedListContainerViewListDelegate, 
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        let vc = UOrdersUnprocessedViewController()
-        if listType == 0{ // 普通订单
-            if index == 1 {//待处理
-                let controller = UOrdersUnprocessedViewController()
-                return controller
-            } else if index == 2 {//待收货
-                let controller = UOrdersNotReceiptController()
-                return controller
-            } else if index == 3 {
-                let controller = UOrdersCompleteController()
-                return controller
-            } else if index == 4 {
-                let controller = UOrdersCancleController()
-                return controller
-            }
-        } else { // 售后订单
-            let vc = URefundOrderController()
-            vc.orderType = index
+
+        if index == 0{
+            let vc = UPickingOrdersViewController()
+            return vc
+        } else {
+            let vc = UDistributionOrdersViewController()
             return vc
         }
-        return vc
     }
 }
 

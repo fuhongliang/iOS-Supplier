@@ -63,7 +63,7 @@ class UHomeFinancialCell: UBaseTableViewCell {
         
     }
     
-    //TODO 收支明细的model
+    //收支明细的model
     var model : IncomeDetailModel? {
         didSet {
             guard model == nil else { return }

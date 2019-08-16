@@ -168,7 +168,7 @@ class UNewOrderCell: UBaseTableViewCell {
             
             //MARK:商品图片
             commodityIcon.image = UIImage.init(named: "apply_status")
-            //TODO 圆角
+            //圆角
             contentView.addSubview(commodityIcon)
             commodityIcon.snp.makeConstraints { (ConstraintMaker) in
                 ConstraintMaker.left.equalTo(whiteBg.snp.left).offset(15)
@@ -274,7 +274,7 @@ class UNewOrderCell: UBaseTableViewCell {
     }
     
     //设置修改价格按钮是否显示
-    //TODO 设置按钮后灰色背景会偏移  可能cell或者tableview的宽度计算错误
+    //设置按钮后灰色背景会偏移  可能cell或者tableview的宽度计算错误
     func setButton(modifyPrice:Bool,modifyPriceText:String,modifyPriceWidth:Int){
             modifyPriceBtn.setTitle(modifyPriceText, for: .normal)
             contentView.addSubview(modifyPriceBtn)
@@ -303,7 +303,7 @@ class UNewOrderCell: UBaseTableViewCell {
             
             modifyPriceBtn.addTarget(self, action: #selector(tapModifyPriceOrDeliveryGoods), for:  UIControl.Event.touchUpInside)
             recycleBinBtn.addTarget(self, action: #selector(tapMoveToRecycleBin), for: UIControl.Event.touchUpInside)
-            //TODO 判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
+            //判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
             switch model.order_status {
             case 0:
                 pendingPaymentLaber.text = "待付款"

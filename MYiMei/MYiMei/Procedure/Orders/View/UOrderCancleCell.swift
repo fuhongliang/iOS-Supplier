@@ -159,7 +159,7 @@ class UOrderCancleCell : UBaseTableViewCell {
         
         //MARK:商品图片
         commodityIcon.image = UIImage.init(named: "apply_status")
-        //TODO 圆角
+        //圆角
         contentView.addSubview(commodityIcon)
         commodityIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.left.equalTo(whiteBg.snp.left).offset(15)
@@ -271,7 +271,7 @@ class UOrderCancleCell : UBaseTableViewCell {
             guard let model = model else { return }
 
             recycleBinBtn.addTarget(self, action: #selector(tapMoveToRecycleBin), for: UIControl.Event.touchUpInside)
-            //TODO 判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
+            //判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
 
             userNameLaber.text = model.name
             userPhoneLaber.text = model.mobile

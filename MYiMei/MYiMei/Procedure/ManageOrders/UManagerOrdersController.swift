@@ -17,7 +17,8 @@ class UManagerOrdersController: UBaseViewController {
     }()
 
     let indicator = JXSegmentedIndicatorBackgroundView()
-    let titles = ["普通订单","售后订单"]
+//    let titles = ["普通订单","售后订单"]
+    let titles = ["配货清单"]
     
     let totalItemWidth: CGFloat = 150
     
@@ -46,8 +47,8 @@ class UManagerOrdersController: UBaseViewController {
         segmentedView.indicators = [indicator]
         segmentedView.delegate = self
         //打开头部的显示
-        self.navigationItem.titleView = segmentedView
-//        self.navigationItem.title = "订单管理"
+//        self.navigationItem.titleView = segmentedView
+        self.navigationItem.title = titles[0]
 
         segmentedView.contentScrollView = listContainerView.scrollView
         view.addSubview(listContainerView)
@@ -81,14 +82,17 @@ extension UManagerOrdersController : JXSegmentedViewDelegate,JXSegmentedListCont
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+        
         let vc = UOrdersChildViewController()
-        if index == 0 {
-            vc.titles = ["全部", "待处理", "待收货", "已完成", "已取消"]
-            vc.listType = 0
-        } else {
-            vc.titles = ["全部", "待处理", "已处理"]
-            vc.listType = 1
-        }
+//        if index == 0 {
+//            vc.titles = ["全部", "待处理", "待收货", "已完成", "已取消"]
+//            vc.listType = 0
+//        } else {
+//            vc.titles = ["全部", "待处理", "已处理"]
+//            vc.listType = 1
+//        }
+        vc.titles = ["商品拣货单", "配货单"]
+        vc.listType = 0
         return vc
 
     }

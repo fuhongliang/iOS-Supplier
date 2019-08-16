@@ -129,7 +129,7 @@ class UModifyPriceAlertView : BaseView {
             ConstraintMaker.height.equalTo(44)
             ConstraintMaker.bottom.equalToSuperview()
         }
-        addPriceBtn.addTarget(self, action: #selector(addPrice), for: UIControl.Event.touchDown)
+        addPriceBtn.addTarget(self, action: #selector(addPrice), for: UIControl.Event.touchUpInside)
         
         
         reducePriceBtn.backgroundColor = UIColor.white
@@ -143,7 +143,7 @@ class UModifyPriceAlertView : BaseView {
             ConstraintMaker.height.equalTo(44)
             ConstraintMaker.bottom.equalToSuperview()
         }
-        reducePriceBtn.addTarget(self, action: #selector(reducePrice), for: UIControl.Event.touchDown)
+        reducePriceBtn.addTarget(self, action: #selector(reducePrice), for: UIControl.Event.touchUpInside)
         
     }
     

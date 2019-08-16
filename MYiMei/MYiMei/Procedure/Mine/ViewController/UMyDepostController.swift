@@ -112,7 +112,7 @@ extension UMyDepostController: UITableViewDelegate, UITableViewDataSource {
         if(indexPath.section == 0){
             return 99
         }else if(indexPath.section == 1){
-            return 165
+            return 150
         }else {
             return 350
         }
@@ -130,24 +130,10 @@ extension UMyDepostController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 1 ? 44 : CGFloat.leastNormalMagnitude
+        return CGFloat.leastNormalMagnitude
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
-            let tipView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: tableView.frame.size.height))
-            tipView.backgroundColor = UIColor.white
-            let label = UILabel()
-            label.text = "转账凭证"
-            label.textColor = UIColor.black
-            label.font = UIFont.systemFont(ofSize: 15)
-            tipView.addSubview(label)
-            label.snp.makeConstraints { (ConstraintMaker) in
-                ConstraintMaker.left.equalToSuperview().offset(15)
-                ConstraintMaker.top.equalToSuperview().offset(19)
-            }
-            return tipView
-        }
         return nil
     }
 
@@ -183,6 +169,16 @@ extension UMyDepostController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            var images = [String]()
+            for item in depostArray {
+                images.append(item.image_url)
+            }
+            let previewVC = UImagePreviewController(images: images, isUrlImg: true, index: indexPath.row)
+            previewVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            previewVC.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+            self.present(previewVC, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

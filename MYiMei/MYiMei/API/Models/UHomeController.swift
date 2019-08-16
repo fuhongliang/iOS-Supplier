@@ -217,9 +217,9 @@ class UHomeController: UBaseViewController {
             self.storeData = StoreDashBoardModel.data!
             if(self.storeData.store != nil){
                 
-                self.mHomeView.pendingPayNumberLaber.text = String(self.storeData.store?.order_statistics?.wait_pay_orders ?? 0)
-                self.mHomeView.wiatDeliveryNumberLaber.text = String(self.storeData.store?.order_statistics?.wait_send_orders ?? 0)
-                self.mHomeView.activistOrderNumberLaber.text = String(self.storeData.store?.order_statistics?.refunding_orders ?? 0)
+                self.mHomeView.pendingPayNumberLaber.text = String(self.storeData.store?.order_statistics?.wait_pick_goods ?? 0)
+                self.mHomeView.wiatDeliveryNumberLaber.text = String(self.storeData.store?.order_statistics?.wait_send_goods ?? 0)
+                self.mHomeView.activistOrderNumberLaber.text = String(self.storeData.store?.order_statistics?.goods_count ?? 0)
                 
                 //设置图表的初始数据
                 self.mHomeView.paySegmentedControl.selectedSegmentIndex = 0
@@ -277,9 +277,9 @@ class UHomeController: UBaseViewController {
         self.mHomeView.payAmountNumberLaber.text = data.store?.sell_statistics_today?.order_price ?? "0"
         
         //订单类型数
-        self.mHomeView.pendingPayNumberLaber.text = String(data.store?.order_statistics?.wait_pay_orders ?? 0)
-        self.mHomeView.wiatDeliveryNumberLaber.text = String(data.store?.order_statistics?.wait_send_orders ?? 0)
-        self.mHomeView.activistOrderNumberLaber.text = String(data.store?.order_statistics?.refunding_orders ?? 0)
+        self.mHomeView.pendingPayNumberLaber.text = String(data.store?.order_statistics?.wait_pick_goods ?? 0)
+        self.mHomeView.wiatDeliveryNumberLaber.text = String(data.store?.order_statistics?.wait_send_goods ?? 0)
+        self.mHomeView.activistOrderNumberLaber.text = String(data.store?.order_statistics?.goods_count ?? 0)
         
     }
     
@@ -315,8 +315,26 @@ class UHomeController: UBaseViewController {
         }
     }
     
+    func showAlertControllerStyle() {
+        let alertController = UIAlertController(title: "温馨提示", message: "是否拨打平台联系电话？", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "确定", style: UIAlertAction.Style.default) {
+            (action: UIAlertAction!) -> Void in
+            
+            let phone = "telprompt://" + APIUser.shared.user!.service_tel!
+            
+            if UIApplication.shared.canOpenURL(URL(string: phone)!) {
+                UIApplication.shared.openURL(URL(string: phone)!)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 extension UHomeController: ChartViewDelegate,UHomeViewDelegate {
+    
     
     func tapPayControl(sender: UISegmentedControl) {
         changeChartsData(_ : sender)
@@ -326,27 +344,27 @@ extension UHomeController: ChartViewDelegate,UHomeViewDelegate {
         changeSalesData(_ : sender)
     }
     
-    func tapMessageManager() {
-        let vc = UMessageManagerController()
-        vc.title = "消息管理"
+    //MARK:联系平台
+    func tapCallPlatform() {
+        showAlertControllerStyle()
+    }
+    
+    //MARK:账号安全
+    func tapAccountSafe() {
+        let vc = UAccountSafeController()
+        vc.title = "账号安全"
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tapCommentsManager() {
-        //评论管理
-        let vc = UCommentController()
-        vc.title = "评价管理"
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tapShopSetting() {
-        let vc = USetUpShopController()
-        vc.title = "店铺设置"
+    //MARK:我的团长
+    func tapMyHeadShare() {
+        let vc = UMyHeadOfTheMerchantController()
+        vc.title = "我的团长"
+        vc.listType = 1
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func tapFinancialOver() {
-//        showHUDInView(text: "此功能正在开发中", inView: self.view)
         let vc = UHomeFinancialSettlementController()
         vc.title = "财务结算"
         navigationController?.pushViewController(vc, animated: true)

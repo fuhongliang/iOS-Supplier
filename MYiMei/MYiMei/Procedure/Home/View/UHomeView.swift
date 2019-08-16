@@ -10,9 +10,9 @@ import UIKit
 import Charts
 
 protocol UHomeViewDelegate: AnyObject {
-    func tapMessageManager()//消息管理
-    func tapCommentsManager()//评论管理
-    func tapShopSetting()//店铺设置
+    func tapCallPlatform()//联系平台
+    func tapMyHeadShare()//我的团长
+    func tapAccountSafe()//账号安全
     func tapFinancialOver()//财务结算
     func tapDepost()//保证金
     func tapSalesControl(sender: UISegmentedControl)//保证金
@@ -129,69 +129,25 @@ class UHomeView: BaseView {
             ConstraintMaker.right.equalToSuperview().offset(-15)
             ConstraintMaker.height.equalTo(80)
         }
-        //MARK:消息管理
-        message.configUI()
-        self.addSubview(message)
-        message.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(featuresBg.snp.left)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
-            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
-        }
-        self.addSubview(messageBtn)
-        messageBtn.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(featuresBg.snp.left)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
-            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
-        }
-        messageBtn.addTarget(self, action: #selector(messageManager), for: UIControl.Event.touchUpInside)
-        //MARK:评论管理
-        evaluation.configUI()
-        self.addSubview(evaluation)
-        evaluation.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(message.snp.right)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
-            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
-        }
-        self.addSubview(evaluationBtn)
-        evaluationBtn.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(message.snp.right)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
-            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
-        }
-        evaluationBtn.addTarget(self, action: #selector(commentsManager), for: UIControl.Event.touchUpInside)
-        //MARK:店铺设置
-        storeSetting.configUI()
-        self.addSubview(storeSetting)
-        storeSetting.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(evaluation.snp.right)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
-           ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
-        }
         
-        self.addSubview(storeSettingBtn)
-        storeSettingBtn.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(evaluation.snp.right)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
-            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
-        }
-        storeSettingBtn.addTarget(self, action: #selector(shopSetting), for: UIControl.Event.touchUpInside)
         //MARK:财务结算
         financial.configUI()
         financial.menuIcon.image = UIImage.init(named: "homeFinancialSettlementCell")
         financial.marginLabel.text = "财务结算"
         self.addSubview(financial)
         financial.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(storeSetting.snp.right)
+            ConstraintMaker.left.equalTo(featuresBg.snp.left)
             ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
             ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
         }
         self.addSubview(financialBtn)
         financialBtn.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(storeSetting.snp.right)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
+            ConstraintMaker.left.equalTo(featuresBg.snp.left)
+            ConstraintMaker.height.top.equalTo(featuresBg)
             ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
         }
         financialBtn.addTarget(self, action: #selector(financialOver), for: UIControl.Event.touchUpInside)
+        
         //MARK:保证金
         depost.configUI()
         self.addSubview(depost)
@@ -203,10 +159,62 @@ class UHomeView: BaseView {
         self.addSubview(depostBtn)
         depostBtn.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.left.equalTo(financial.snp.right)
-            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
+//            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
+            ConstraintMaker.height.top.equalTo(featuresBg)
             ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
         }
         depostBtn.addTarget(self, action: #selector(depostTap), for: UIControl.Event.touchUpInside)
+        
+        //MARK:账号安全
+        storeSetting.configUI()
+        self.addSubview(storeSetting)
+        storeSetting.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(depost.snp.right)
+            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
+            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
+        }
+        
+        self.addSubview(storeSettingBtn)
+        storeSettingBtn.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(depost.snp.right)
+            ConstraintMaker.height.top.equalTo(featuresBg)
+            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
+        }
+        storeSettingBtn.addTarget(self, action: #selector(accountSafe), for: UIControl.Event.touchUpInside)
+        
+        
+        //MARK:联系平台
+        message.configUI()
+        self.addSubview(message)
+        message.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(storeSetting.snp.right)
+            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
+            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
+        }
+        self.addSubview(messageBtn)
+        messageBtn.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(storeSetting.snp.right)
+            ConstraintMaker.height.top.equalTo(featuresBg)
+            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
+        }
+        messageBtn.addTarget(self, action: #selector(callPlatform), for: UIControl.Event.touchUpInside)
+        
+        //MARK:我的团长
+        evaluation.configUI()
+        self.addSubview(evaluation)
+        evaluation.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(message.snp.right)
+            ConstraintMaker.top.equalTo(featuresBg.snp.top).offset(17)
+            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
+        }
+        self.addSubview(evaluationBtn)
+        evaluationBtn.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(message.snp.right)
+            ConstraintMaker.height.top.equalTo(featuresBg)
+            ConstraintMaker.width.equalTo(featuresBg).dividedBy(5)
+        }
+        evaluationBtn.addTarget(self, action: #selector(myHeadShare), for: UIControl.Event.touchUpInside)
+        
         
         //MARK:销售统计背景
         salesWhiteBg.backgroundColor = UIColor.white
@@ -447,16 +455,17 @@ class UHomeView: BaseView {
             ConstraintMaker.height.equalTo(155)
         }
     }
-    @objc func messageManager() {
-        delegate?.tapMessageManager()//消息管理
+    @objc func callPlatform() {
+        delegate?.tapCallPlatform()//消息管理
     }
-    @objc func commentsManager() {
-        delegate?.tapCommentsManager()
+    @objc func myHeadShare() {
+        delegate?.tapMyHeadShare()
     }
-    @objc func shopSetting() {
-        delegate?.tapShopSetting()
+    @objc func accountSafe() {
+        delegate?.tapAccountSafe()
     }
     @objc func financialOver() {
+        print("财务结算")
         delegate?.tapFinancialOver()
     }
     @objc func depostTap() {

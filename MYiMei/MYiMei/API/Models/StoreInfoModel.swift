@@ -51,4 +51,8 @@ class MchModel: Codable {
     
     var region: String!
     
+    var mch_color: String!
+    
+    var header_color: String!
+    
 }

@@ -167,7 +167,7 @@ class UOrderCompleteCell : UBaseTableViewCell {
         
         //MARK:商品图片
         commodityIcon.image = UIImage.init(named: "apply_status")
-        //TODO 圆角
+        //圆角
         contentView.addSubview(commodityIcon)
         commodityIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.left.equalTo(whiteBg.snp.left).offset(15)

@@ -160,7 +160,8 @@ class APIStoreServices: APIStoreServicesProtocol {
                     success(model)
                 }
                 catch {
-                    let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败", _data: nil)
+                    let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                    print("解析失败\(error)")
                     fail(errorModel)
                 }
             }) { (error) in

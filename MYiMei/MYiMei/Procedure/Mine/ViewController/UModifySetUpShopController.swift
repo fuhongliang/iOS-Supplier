@@ -40,22 +40,20 @@ class UModifySetUpShopController: UBaseViewController {
         switch paramIndex {
         case 0:
             param = "name"
-            break
         case 1:
             param = "realname"
-            break
         case 2:
             param = "tel"
-            break
         case 3:
             param = "service_tel"
-            break
         case 5:
             param = "address"
-            break
+        case 6:
+            param = "mch_color"
+        case 7:
+            param = "header_color"
         default:
             param = "name"
-            break
         }
         
         services.modifyStoreInfo(param: param, paramValue: mContent, {

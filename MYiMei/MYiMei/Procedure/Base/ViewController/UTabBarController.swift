@@ -15,8 +15,7 @@ class UTabBarController: UITabBarController {
     
     ///NEW
     let goodsVC = UGoodsManagementController()
-    let settingVC = USettingViewController()
-    
+//    let settingVC = USettingViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,7 @@ class UTabBarController: UITabBarController {
         /// 订单管理
         
         addChildViewController(classVC,
-                               title: "订单",
+                               title: "配货清单",
                                image: UIImage(named: "tab_manager_orders"),
                                selectedImage: UIImage(named: "tab_manager_orders_S"))
 
@@ -46,10 +45,10 @@ class UTabBarController: UITabBarController {
                                selectedImage: UIImage(named: "tab_goods_S"))
         
         /// 设置
-        addChildViewController(settingVC,
-                               title: "设置",
-                               image:  UIImage(named: "tab_setting"),
-                               selectedImage: UIImage(named: "tab_setting_S"))
+//        addChildViewController(settingVC,
+//                               title: "设置",
+//                               image:  UIImage(named: "tab_setting"),
+//                               selectedImage: UIImage(named: "tab_setting_S"))
 
     }
 

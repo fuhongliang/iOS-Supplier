@@ -31,9 +31,135 @@ protocol APIOrderServicesProtocol {
     //MARK:售后订单处理
     func handleRefundOrder(refundOrderId:Int, option:Int, refuseDesc:String, _ success: @escaping((() -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
     
+    //MARK:商品拣货单
+    func pickGoods(_ success: @escaping(((PickGoodsResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
+    
+    //MARK:拣货单详情
+    func pickOrderDetail(huodanId:String, _ success: @escaping(((PickGoodsDetailResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
+    
+    //MARK:配货单列表
+    func deliverGoods(_ success: @escaping(((DeliverGoodsResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
+    
+    //MARK:配货单详情
+    func deliverGoodsDetail(deliverId:Int,_ success: @escaping(((DeliverGoodsDetailResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
+    
+    //MARK:设置拣货
+    func setPick(huodanId:Int,_ success: @escaping((() -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
+    
+    //MARK:设置发货
+    func setDeliver(deliverId:Int,_ success: @escaping((() -> Void)), _ fail: @escaping ((APIErrorModel) -> Void))
 }
 
 class APIOrderServices: APIOrderServicesProtocol {
+    
+    func deliverGoodsDetail(deliverId: Int, _ success: @escaping (((DeliverGoodsDetailResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
+        let params: [String:Any] = [
+            "mch_id": APIUser.shared.user?.mch_id as Any,
+            "access_token":APIUser.shared.user?.access_token as Any,
+            "is_debug":"1",
+            "deliver_id":deliverId
+        ]
+        APIService.shared.request(.deliverGoodsDetail(param: params), { (data) in
+            do{
+                let model = try JSONDecoder().decode(DeliverGoodsDetailResponseModel.self, from: data)
+                success(model)
+            } catch {
+                let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                fail(errorModel)
+            }
+        }) { (APIErrorModel) in
+            fail(APIErrorModel)
+        }
+    }
+    
+    func setDeliver(deliverId: Int, _ success: @escaping ((() -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
+        let params: [String:Any] = [
+            "mch_id": APIUser.shared.user?.mch_id as Any,
+            "access_token":APIUser.shared.user?.access_token as Any,
+            "is_debug":"1",
+            "deliver_id":deliverId
+        ]
+        APIService.shared.request(.setDeliver(param: params), { (data) in
+            success()
+        }) { (APIErrorModel) in
+            fail(APIErrorModel)
+        }
+    }
+    
+    func setPick(huodanId: Int, _ success: @escaping ((() -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
+        let params: [String:Any] = [
+            "mch_id": APIUser.shared.user?.mch_id as Any,
+            "access_token":APIUser.shared.user?.access_token as Any,
+            "is_debug":"1",
+            "huodan_id":huodanId
+        ]
+        APIService.shared.request(.setPick(param: params), { (data) in
+            success()
+        }) { (APIErrorModel) in
+            fail(APIErrorModel)
+        }
+    }
+    
+    func deliverGoods(_ success: @escaping (((DeliverGoodsResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
+        let params: [String:Any] = [
+            "mch_id": APIUser.shared.user?.mch_id as Any,
+            "access_token":APIUser.shared.user?.access_token as Any,
+            "is_debug":"1"
+        ]
+        APIService.shared.request(.deliverGoods(param: params), { (data) in
+            do{
+                let model = try JSONDecoder().decode(DeliverGoodsResponseModel.self, from: data)
+                success(model)
+            } catch {
+                let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                fail(errorModel)
+            }
+        }) { (APIErrorModel) in
+            fail(APIErrorModel)
+        }
+    }
+    
+    
+    func pickOrderDetail(huodanId:String, _ success: @escaping (((PickGoodsDetailResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
+        let params: [String:Any] = [
+            "mch_id": APIUser.shared.user?.mch_id as Any,
+            "access_token":APIUser.shared.user?.access_token as Any,
+            "is_debug":"1",
+            "huodan_id":huodanId
+        ]
+        APIService.shared.request(.pickOrderDetail(param: params), { (data) in
+            do{
+                let model = try JSONDecoder().decode(PickGoodsDetailResponseModel.self, from: data)
+                success(model)
+            } catch {
+                let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                print(errorModel.msg as Any)
+                fail(errorModel)
+            }
+        }) { (APIErrorModel) in
+            fail(APIErrorModel)
+        }
+    }
+    
+    func pickGoods(_ success: @escaping (((PickGoodsResponseModel) -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
+        let params: [String:Any] = [
+            "mch_id": APIUser.shared.user?.mch_id as Any,
+            "access_token":APIUser.shared.user?.access_token as Any,
+            "is_debug":"1"
+        ]
+        APIService.shared.request(.pickGoods(param: params), { (data) in
+            do{
+                let model = try JSONDecoder().decode(PickGoodsResponseModel.self, from: data)
+                success(model)
+            } catch {
+                let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                fail(errorModel)
+            }
+        }) { (APIErrorModel) in
+            fail(APIErrorModel)
+        }
+    }
+    
     func handleRefundOrder(refundOrderId: Int, option: Int, refuseDesc: String, _ success: @escaping ((() -> Void)), _ fail: @escaping ((APIErrorModel) -> Void)) {
         let params: [String:Any] = [
             "mch_id": APIUser.shared.user?.mch_id as Any,

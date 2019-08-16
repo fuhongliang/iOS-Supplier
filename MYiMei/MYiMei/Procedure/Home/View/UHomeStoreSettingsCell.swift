@@ -19,12 +19,12 @@ class UHomeStoreSettingsCell: BaseView {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 12)
         tl.textColor = UIColor.hex(hexString: "#666666")
-        tl.text = "店铺设置"
+        tl.text = "账户安全"
         tl.isUserInteractionEnabled = true
         return tl
     }()
     func configUI() {
-        menuIcon.image = UIImage.init(named: "homeStoreSettingsCell")
+        menuIcon.image = UIImage.init(named: "account_security")
         self.addSubview(menuIcon)
         menuIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.centerX.equalToSuperview()

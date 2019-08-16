@@ -302,10 +302,10 @@ class UStoreEventsCell: UBaseTableViewCell {
         }
         
 
-        goodsManagementBtn.addTarget(self, action: #selector(tapGoodsManagementAction), for: UIControl.Event.touchDown)
-        storeSettingsBtn.addTarget(self, action: #selector(tapStoreSettingsAction), for: UIControl.Event.touchDown)
-        financialBtn.addTarget(self, action: #selector(okTapFinancialAction), for: UIControl.Event.touchDown)
-        businessDataBtn.addTarget(self, action: #selector(tapBusinessDataAction), for: UIControl.Event.touchDown)
+        goodsManagementBtn.addTarget(self, action: #selector(tapGoodsManagementAction), for: UIControl.Event.touchUpInside)
+        storeSettingsBtn.addTarget(self, action: #selector(tapStoreSettingsAction), for: UIControl.Event.touchUpInside)
+        financialBtn.addTarget(self, action: #selector(okTapFinancialAction), for: UIControl.Event.touchUpInside)
+        businessDataBtn.addTarget(self, action: #selector(tapBusinessDataAction), for: UIControl.Event.touchUpInside)
     }
 
     @objc func okTapFinancialAction() {

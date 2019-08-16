@@ -168,7 +168,7 @@ class UOrderNotReceiptCell : UBaseTableViewCell {
         
         //MARK:商品图片
         commodityIcon.image = UIImage.init(named: "apply_status")
-        //TODO 圆角
+        //圆角
         contentView.addSubview(commodityIcon)
         commodityIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.left.equalTo(whiteBg.snp.left).offset(15)
@@ -290,39 +290,13 @@ class UOrderNotReceiptCell : UBaseTableViewCell {
         callTheClient?()
     }
     
-    //设置修改价格按钮是否显示
-    //TODO 设置按钮后灰色背景会偏移  可能cell或者tableview的宽度计算错误
-    //    func setButton(modifyPrice:Bool,modifyPriceText:String,modifyPriceWidth:Int){
-    //        //        if modifyPrice {
-    //        modifyPriceBtn.setTitle(modifyPriceText, for: .normal)
-    //        contentView.addSubview(modifyPriceBtn)
-    //        modifyPriceBtn.snp.makeConstraints { (ConstraintMaker) in
-    //            ConstraintMaker.top.equalTo(totalLine.snp.bottom).offset(7)
-    //            ConstraintMaker.right.equalTo(whiteBg.snp.right).offset(-15)
-    //            ConstraintMaker.width.equalTo(modifyPriceWidth)
-    //            ConstraintMaker.height.equalTo(30)
-    //        }
-    //        //        }
-    //        contentView.addSubview(recycleBinBtn)
-    //        recycleBinBtn.snp.makeConstraints { (ConstraintMaker) in
-    //            ConstraintMaker.top.equalTo(totalLine.snp.bottom).offset(7)
-    //            ConstraintMaker.width.equalTo(95)
-    //            ConstraintMaker.height.equalTo(30)
-    //            if modifyPrice {
-    //                ConstraintMaker.right.equalTo(modifyPriceBtn.snp.left).offset(-15)
-    //            } else {
-    //                ConstraintMaker.right.equalToSuperview().offset(-15)
-    //            }
-    //        }
-    //    }
-    
     var model: Order? {
         didSet {
             guard let model = model else { return }
             
             modifyPriceBtn.addTarget(self, action: #selector(tapModifyPriceOrDeliveryGoods), for:  UIControl.Event.touchUpInside)
             recycleBinBtn.addTarget(self, action: #selector(tapMoveToRecycleBin), for: UIControl.Event.touchUpInside)
-            //TODO 判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
+            // 判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
             
             userNameLaber.text = model.name
             userPhoneLaber.text = model.mobile

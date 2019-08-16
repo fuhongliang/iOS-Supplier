@@ -19,12 +19,12 @@ class UHomeEvaluationManagementCell: BaseView {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 12)
         tl.textColor = UIColor.hex(hexString: "#666666")
-        tl.text = "评论管理"
+        tl.text = "我的团长"
         tl.isUserInteractionEnabled = true
         return tl
     }()
     func configUI() {
-        menuIcon.image = UIImage.init(named: "homeEvaluationManagementCell")
+        menuIcon.image = UIImage.init(named: "my_head_share")
         self.addSubview(menuIcon)
         menuIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.centerX.equalToSuperview()

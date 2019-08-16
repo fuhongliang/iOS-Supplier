@@ -30,6 +30,7 @@ class UShopLabelNotArrowCell: UBaseTableViewCell {
         tl.font = UIFont.systemFont(ofSize: 17)
         tl.textColor = UIColor.hex(hexString: "#999999")
         tl.text = "全屋定制"
+        tl.textAlignment = .right
         return tl
     }()
     

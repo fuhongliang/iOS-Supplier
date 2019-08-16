@@ -18,7 +18,7 @@ class UManagementClassificationCell: UBaseTableViewCell {
         let seriesLaber = UILabel()
         seriesLaber.text = "现代系列"
         seriesLaber.textColor = UIColor.hex(hexString: "#666666")
-        seriesLaber.font = UIFont.systemFont(ofSize: 15)
+        seriesLaber.font = UIFont.systemFont(ofSize: 17)
         return seriesLaber
     }()
     //按钮
@@ -97,8 +97,8 @@ class UManagementClassificationCell: UBaseTableViewCell {
             
         }
         
-        editBtn.addTarget(self, action: #selector(tapEditCat), for: UIControl.Event.touchDown)
-        deleteBtn.addTarget(self, action: #selector(tapDeleteCat), for: UIControl.Event.touchDown)
+        editBtn.addTarget(self, action: #selector(tapEditCat), for: UIControl.Event.touchUpInside)
+        deleteBtn.addTarget(self, action: #selector(tapDeleteCat), for: UIControl.Event.touchUpInside)
     
         
     }

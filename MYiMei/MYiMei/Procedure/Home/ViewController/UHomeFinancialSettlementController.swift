@@ -83,14 +83,14 @@ class UHomeFinancialSettlementController: UBaseViewController {
         let alert = SCLAlertView(appearance: style)
         if Double(mHomeFinancialSettlementView.overNumberLaber.text!) ?? 0 >= 1 {
             alert.addButton("提现到银行卡",textColor:UIColor.hex(hexString: "#1C98F6")) {
-                //TODO 跳转
+                
                 let vc = UBankCardWithdrawController()
                 vc.title = "提现"
                 vc.maxAmount = Double(self.mHomeFinancialSettlementView.overNumberLaber.text ?? "0")!
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             alert.addButton("提现到微信",textColor:UIColor.hex(hexString: "#35C42E")) {
-                //TODO 跳转
+                
                 let vc = UWeChatWithdrawController()
                 vc.title = "提现"
                 vc.maxAmount = Double(self.mHomeFinancialSettlementView.overNumberLaber.text ?? "0")!

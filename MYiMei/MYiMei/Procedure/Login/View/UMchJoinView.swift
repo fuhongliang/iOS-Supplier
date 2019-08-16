@@ -236,7 +236,7 @@ class UMchJoinView: BaseView {
             ConstraintMaker.height.equalTo(44)
         }
 
-        storeCategoryBtn.addTarget(self, action: #selector(chooseStoreClassAction), for: UIControl.Event.touchDown)
+        storeCategoryBtn.addTarget(self, action: #selector(chooseStoreClassAction), for: UIControl.Event.touchUpInside)
 
         storeCategoryIcon.image = UIImage.init(named: "notice")
         self.addSubview(storeCategoryIcon)
@@ -280,7 +280,7 @@ class UMchJoinView: BaseView {
             ConstraintMaker.height.equalTo(44)
         }
         //MARK:选择店铺地址操作
-        storeAddressBtn.addTarget(self, action: #selector(tapChooseStoreAddressAction), for: UIControl.Event.touchDown)
+        storeAddressBtn.addTarget(self, action: #selector(tapChooseStoreAddressAction), for: UIControl.Event.touchUpInside)
 
 
         storeAddressLine.backgroundColor = UIColor.hex(hexString: "#E5E5E5")
@@ -408,7 +408,7 @@ class UMchJoinView: BaseView {
         }
 
        //Mark:店铺背景选择
-        storeBgBtn.addTarget(self, action: #selector(chooseStoreBgPicAction), for: UIControl.Event.touchDown)
+        storeBgBtn.addTarget(self, action: #selector(chooseStoreBgPicAction), for: UIControl.Event.touchUpInside)
 
         //MARK:店铺logo
         storeLogoLabel.text = "店铺LOGO"
@@ -450,7 +450,7 @@ class UMchJoinView: BaseView {
             ConstraintMaker.right.equalToSuperview()
         }
         //Mark:Logo选择
-        storeLogoBtn.addTarget(self, action: #selector(chooseStoreLogoPicAction), for: UIControl.Event.touchDown)
+        storeLogoBtn.addTarget(self, action: #selector(chooseStoreLogoPicAction), for: UIControl.Event.touchUpInside)
 
 
         //MARK:店铺营业执照
@@ -483,7 +483,7 @@ class UMchJoinView: BaseView {
             ConstraintMaker.right.equalToSuperview().offset(-15)
         }
         //Mark:营业执照选择
-        storeLicenseBtn.addTarget(self, action: #selector(chooseLicensePicAction), for: UIControl.Event.touchDown)
+        storeLicenseBtn.addTarget(self, action: #selector(chooseLicensePicAction), for: UIControl.Event.touchUpInside)
 
          //MARK:提交审核
         joinButton.backgroundColor = UIColor.hex(hexString: "#1C98F6")
@@ -500,7 +500,7 @@ class UMchJoinView: BaseView {
             ConstraintMaker.height.equalTo(44)
         }
 
-        joinButton.addTarget(self, action: #selector(pushAppyAction), for: UIControl.Event.touchDown)
+        joinButton.addTarget(self, action: #selector(pushAppyAction), for: UIControl.Event.touchUpInside)
     }
 
     @objc func tapChooseStoreAddressAction() {

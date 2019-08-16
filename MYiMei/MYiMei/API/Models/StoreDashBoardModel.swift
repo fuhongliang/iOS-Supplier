@@ -46,11 +46,11 @@ class SellStatisticsTodayModel: Codable {
 
 class OrderStatisticsModel: Codable {
 
-    var wait_pay_orders = Int()
+    var wait_pick_goods = Int()
 
-     var wait_send_orders = Int()
+     var wait_send_goods = Int()
 
-    var refunding_orders = Int()
+    var goods_count = Int()
 
 }
 

@@ -13,11 +13,11 @@ import MBProgressHUD
 
 let ssl: Bool = true
 //MARK:开发环境
- let baseHttpsUrl: String = "https://testjiajuapi.ifhu.cn"
- let baseHttpUrl: String = "http://testjiajuapi.ifhu.cn"
+ let baseHttpsUrl: String = "https://testshequapi.ifhu.cn/mch"
+ let baseHttpUrl: String = "https://testshequapi.ifhu.cn/mch"
 //MARK:正式环境
-//let baseHttpsUrl: String = "https://jiajuapi.ifhu.cn"
-//let baseHttpUrl: String = "http://jiajuapi.ifhu.cn"
+//let baseHttpsUrl: String = "https://shequapi.ifhu.cn/mch"
+//let baseHttpUrl: String = "https://shequapi.ifhu.cn/mch"
 
 // MARK: 网络请求加载插件
 let loadingPlugin = NetworkActivityPlugin { (type, target) in
@@ -83,6 +83,15 @@ enum NetApi {
     case incomeDetail(param: [String:Any])
     case cashOutRecord(param: [String:Any])
     case applyCashOut(param: [String:Any])
+    case pickGoods(param: [String:Any])
+    case pickOrderDetail(param: [String:Any])
+    case deliverGoods(param: [String:Any])
+    case deliverGoodsDetail(param: [String:Any])
+    case setPick(param: [String:Any])
+    case setDeliver(param: [String:Any])
+    case listShare(param: [String:Any])
+    case delShare(param: [String:Any])
+    case addShare(param: [String:Any])
 }
 
 //MARK: 请求对象的封装
@@ -119,7 +128,7 @@ extension NetApi: TargetType {
         case .uploadPic:
             return "/upload_pic"
         case .getDepositAgreement:
-            return "/mch_deposit/agreement"
+            return "/agreement"
         case .getOrderList:
             return "/list_order"
         case .applyJoin:
@@ -137,9 +146,9 @@ extension NetApi: TargetType {
         case .modifyStoreInfo:
             return "/modify_store_info"
         case .getStoreDepostData:
-            return "/mch_deposit/depositlist"
+            return "/deposit_list"
         case .pushDepost:
-            return "/mch_deposit/create"
+            return "/deposit_pay"
         case .addGoodsCat:
             return "/add_goods_cat"
         case .deleteGoodsCat:
@@ -176,12 +185,30 @@ extension NetApi: TargetType {
             return "/cash_out_record"
         case .applyCashOut:
             return "/apply_cash_out"
+        case .pickGoods:
+            return "/pick_goods"
+        case .pickOrderDetail:
+            return "/pick_detail"
+        case .deliverGoods:
+            return "/deliver_goods"
+        case .deliverGoodsDetail:
+            return "/deliver_goods_detail"
+        case .setPick:
+            return "/set_pick"
+        case .setDeliver:
+            return "/set_deliver"
+        case .listShare:
+            return "/list_share"
+        case .delShare:
+            return "/del_share"
+        case .addShare:
+            return "/add_share"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .applyCashOut,.cashOutRecord,.incomeDetail,.handleRefundOrder,.getRefundOrder,.replyComment,.delOrHideComment,.getCommentList,.setMessageNoticeRead,.getMessageNotice,.getOrderDetail,.getExpressList,.getMchPtCats,.addGoods,.modifyStoreInfo,.storeInfo,.pushDepost,.getDepositAgreement,.getOrderList,.getStoreOperateData,.getMchCommonCatId,.applyJoin,.uploadPic,.login,.logout,.getCategory,.getLoginMsg,.getGoodsList,.deleteGoods,.modifyGoodsStatus,.getChangePasswordVerificationCode,.modifyPwd,.modifyOrderPrice,.deliveryGoods,.getStoreDepostData,.addGoodsCat,.deleteGoodsCat,.editGoodsCat,.getGoodsDetail:
+        case .addShare,.delShare,.listShare,.setDeliver,.setPick,.deliverGoodsDetail,.deliverGoods,.pickOrderDetail,.pickGoods,.applyCashOut,.cashOutRecord,.incomeDetail,.handleRefundOrder,.getRefundOrder,.replyComment,.delOrHideComment,.getCommentList,.setMessageNoticeRead,.getMessageNotice,.getOrderDetail,.getExpressList,.getMchPtCats,.addGoods,.modifyStoreInfo,.storeInfo,.pushDepost,.getDepositAgreement,.getOrderList,.getStoreOperateData,.getMchCommonCatId,.applyJoin,.uploadPic,.login,.logout,.getCategory,.getLoginMsg,.getGoodsList,.deleteGoods,.modifyGoodsStatus,.getChangePasswordVerificationCode,.modifyPwd,.modifyOrderPrice,.deliveryGoods,.getStoreDepostData,.addGoodsCat,.deleteGoodsCat,.editGoodsCat,.getGoodsDetail:
           return .post
 
         }
@@ -270,6 +297,24 @@ extension NetApi: TargetType {
         case .cashOutRecord(let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .applyCashOut(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .pickGoods(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .pickOrderDetail(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .deliverGoods(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .deliverGoodsDetail(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .setPick(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .setDeliver(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .listShare(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .delShare(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .addShare(let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
        }
     }

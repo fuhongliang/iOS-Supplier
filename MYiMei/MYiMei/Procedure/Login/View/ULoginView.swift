@@ -203,11 +203,11 @@ class ULoginView: BaseView {
             getMsgBtn.setTitle("获取验证码", for: UIControl.State.normal)
         }
         
-        loginBtn.addTarget(self, action: #selector(okTapAction), for: UIControl.Event.touchDown)
+        loginBtn.addTarget(self, action: #selector(okTapAction), for: UIControl.Event.touchUpInside)
         
-        getMsgBtn.addTarget(self, action: #selector(tapGetMsgAction), for: UIControl.Event.touchDown)
+        getMsgBtn.addTarget(self, action: #selector(tapGetMsgAction), for: UIControl.Event.touchUpInside)
         
-        applyBtn.addTarget(self, action: #selector(tapApplyAction), for: UIControl.Event.touchDown)
+        applyBtn.addTarget(self, action: #selector(tapApplyAction), for: UIControl.Event.touchUpInside)
         
     }
     

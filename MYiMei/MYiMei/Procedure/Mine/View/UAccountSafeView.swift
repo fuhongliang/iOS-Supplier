@@ -120,7 +120,7 @@ class UAccountSafeView: BaseView {
             ConstraintMaker.top.equalTo(accountLine.snp.bottom)
             
         }
-        modifyPasswordBtn.addTarget(self, action: #selector(modifyPasswordAction), for: UIControl.Event.touchDown)
+        modifyPasswordBtn.addTarget(self, action: #selector(modifyPasswordAction), for: UIControl.Event.touchUpInside)
         changePasswordLabel.text = "修改密码"
         changePasswordLabel.textColor = UIColor.black
         changePasswordLabel.font = UIFont.systemFont(ofSize: 17)
@@ -153,7 +153,7 @@ class UAccountSafeView: BaseView {
             ConstraintMaker.bottom.equalToSuperview().offset(-20)
             ConstraintMaker.height.equalTo(44)
         }
-        submitButton.addTarget(self, action: #selector(logoutAction), for: UIControl.Event.touchDown)
+        submitButton.addTarget(self, action: #selector(logoutAction), for: UIControl.Event.touchUpInside)
         
     }
 

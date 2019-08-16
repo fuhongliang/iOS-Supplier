@@ -61,7 +61,7 @@ class UHomeWithdrawalsRecordCell: UBaseTableViewCell {
         
     }
     
-    //TODO 提现记录的model
+    //提现记录的model
     var model : CashOutRecordModel? {
         didSet {
             guard model != nil else { return }

@@ -135,9 +135,9 @@ class UGoodsCell: UBaseTableViewCell {
             ConstraintMaker.top.equalTo(goodsEditBtn.snp.top)
         }
 
-        goodsPopupBtn.addTarget(self, action: #selector(tapGoodsPopupAction), for: UIControl.Event.touchDown)
-        goodsEditBtn.addTarget(self, action: #selector(tapGoodsEdittAction), for: UIControl.Event.touchDown)
-        goodsDeleteBtn.addTarget(self, action: #selector(tapGoodsDeleteAction), for: UIControl.Event.touchDown)
+        goodsPopupBtn.addTarget(self, action: #selector(tapGoodsPopupAction), for: UIControl.Event.touchUpInside)
+        goodsEditBtn.addTarget(self, action: #selector(tapGoodsEdittAction), for: UIControl.Event.touchUpInside)
+        goodsDeleteBtn.addTarget(self, action: #selector(tapGoodsDeleteAction), for: UIControl.Event.touchUpInside)
     }
 
     @objc func tapGoodsPopupAction() {

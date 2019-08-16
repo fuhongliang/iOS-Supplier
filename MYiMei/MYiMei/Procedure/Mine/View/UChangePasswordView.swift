@@ -78,7 +78,7 @@ class UChangePasswordView: BaseView {
             ConstraintMaker.height.equalTo(30)
             ConstraintMaker.width.equalTo(87)
         }
-        getVerificationCodeBtn.addTarget(self, action: #selector(getVerification), for:  UIControl.Event.touchDown)
+        getVerificationCodeBtn.addTarget(self, action: #selector(getVerification), for:  UIControl.Event.touchUpInside)
         
         //MARK:手机号分割线
         phoneLine.backgroundColor = UIColor.hex(hexString: "#E5E5E5")
@@ -183,7 +183,7 @@ class UChangePasswordView: BaseView {
             ConstraintMaker.top.equalTo(passwordTip.snp.bottom).offset(31)
             ConstraintMaker.height.equalTo(44)
         }
-        confirmChange.addTarget(self, action: #selector(ConfirmChange), for: UIControl.Event.touchDown)
+        confirmChange.addTarget(self, action: #selector(ConfirmChange), for: UIControl.Event.touchUpInside)
         
     }
     

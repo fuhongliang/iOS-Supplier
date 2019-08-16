@@ -36,7 +36,6 @@ class UOrderDetailsViewController: UBaseViewController {
         return tw
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setOrderDetailTitle()

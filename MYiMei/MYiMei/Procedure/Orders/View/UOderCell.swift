@@ -402,7 +402,7 @@ class UOderCell : UBaseTableViewCell {
             ConstraintMaker.right.equalToSuperview().offset(-15)
             ConstraintMaker.top.equalTo(totalLine.snp.bottom).offset(10)
         }        
-//        priceModifyBg.addTarget(self, action: #selector(tapModifyPriceOrDelivery), for:  UIControl.Event.touchDown)
+//        priceModifyBg.addTarget(self, action: #selector(tapModifyPriceOrDelivery), for:  UIControl.Event.touchUpInside)
     }
     
     @objc func tapModifyPriceOrDeliveryGoods() {

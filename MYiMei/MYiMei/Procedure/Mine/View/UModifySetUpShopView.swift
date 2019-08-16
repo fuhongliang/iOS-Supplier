@@ -59,7 +59,7 @@ class UModifySetUpShopView: BaseView {
             ConstraintMaker.right.equalToSuperview().offset(-15)
             ConstraintMaker.height.equalTo(44)
         }
-        saveBtn.addTarget(self, action: #selector(tapOk), for: UIControl.Event.touchDown)
+        saveBtn.addTarget(self, action: #selector(tapOk), for: UIControl.Event.touchUpInside)
     }
     
     @objc func tapOk() {

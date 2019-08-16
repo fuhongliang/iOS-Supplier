@@ -29,6 +29,7 @@ class UShopLabelCell: UBaseTableViewCell {
         tl.font = UIFont.systemFont(ofSize: 17)
         tl.textColor = UIColor.black
         tl.text = "陆丰箭牌卫浴旗舰店"
+        tl.textAlignment = .right
         return tl
     }()
     

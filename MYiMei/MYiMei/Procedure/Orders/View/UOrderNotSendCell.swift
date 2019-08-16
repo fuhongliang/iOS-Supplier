@@ -167,7 +167,7 @@ class UOrderNotSendCell : UBaseTableViewCell {
         
         //MARK:商品图片
         commodityIcon.image = UIImage.init(named: "apply_status")
-        //TODO 圆角
+        //圆角
         contentView.addSubview(commodityIcon)
         commodityIcon.snp.makeConstraints { (ConstraintMaker) in
             ConstraintMaker.left.equalTo(whiteBg.snp.left).offset(15)
@@ -304,67 +304,13 @@ class UOrderNotSendCell : UBaseTableViewCell {
         callTheClient?()
     }
     
-    //设置修改价格按钮是否显示
-    //TODO 设置按钮后灰色背景会偏移  可能cell或者tableview的宽度计算错误
-    //    func setButton(modifyPrice:Bool,modifyPriceText:String,modifyPriceWidth:Int){
-    //        //        if modifyPrice {
-    //        modifyPriceBtn.setTitle(modifyPriceText, for: .normal)
-    //        contentView.addSubview(modifyPriceBtn)
-    //        modifyPriceBtn.snp.makeConstraints { (ConstraintMaker) in
-    //            ConstraintMaker.top.equalTo(totalLine.snp.bottom).offset(7)
-    //            ConstraintMaker.right.equalTo(whiteBg.snp.right).offset(-15)
-    //            ConstraintMaker.width.equalTo(modifyPriceWidth)
-    //            ConstraintMaker.height.equalTo(30)
-    //        }
-    //        //        }
-    //        contentView.addSubview(recycleBinBtn)
-    //        recycleBinBtn.snp.makeConstraints { (ConstraintMaker) in
-    //            ConstraintMaker.top.equalTo(totalLine.snp.bottom).offset(7)
-    //            ConstraintMaker.width.equalTo(95)
-    //            ConstraintMaker.height.equalTo(30)
-    //            if modifyPrice {
-    //                ConstraintMaker.right.equalTo(modifyPriceBtn.snp.left).offset(-15)
-    //            } else {
-    //                ConstraintMaker.right.equalToSuperview().offset(-15)
-    //            }
-    //        }
-    //    }
-    
     var model: Order? {
         didSet {
             guard let model = model else { return }
             
             modifyPriceBtn.addTarget(self, action: #selector(tapModifyPriceOrDeliveryGoods), for:  UIControl.Event.touchUpInside)
             recycleBinBtn.addTarget(self, action: #selector(tapMoveToRecycleBin), for: UIControl.Event.touchUpInside)
-            //TODO 判断 待付款,待收货,待发货 的状态  0 待付款  1待发货 2待收货 3已完成 5已取消
-            //            switch model.order_status {
-            //            case 0:
-            //                pendingPaymentLaber.text = "待付款"
-            //                pendingPaymentLaber.textColor = UIColor.hex(hexString: "#FF4444")
-            //                setButton(modifyPrice: true, modifyPriceText: "修改价格", modifyPriceWidth: 95)
-            //            case 1:
-            //                pendingPaymentLaber.text = "待发货"
-            //                pendingPaymentLaber.textColor = UIColor.hex(hexString: "#1C98F6")
-            //                setButton(modifyPrice: true, modifyPriceText: "设置发货", modifyPriceWidth: 95)
-            //            case 2:
-            //                pendingPaymentLaber.text = "待收货"
-            //                pendingPaymentLaber.textColor = UIColor.hex(hexString: "#1C98F6")
-            //                setButton(modifyPrice: true, modifyPriceText: "修改快递单号", modifyPriceWidth: 105)
-            //
-            //            case 3:
-            //                pendingPaymentLaber.text = "已完成"
-            //                pendingPaymentLaber.textColor = UIColor.hex(hexString: "#07D781")
-            //                setButton(modifyPrice: false, modifyPriceText: "", modifyPriceWidth: 0)
-            //            case 5:
-            //                pendingPaymentLaber.text = "已取消"
-            //                pendingPaymentLaber.textColor = UIColor.hex(hexString: "#999999")
-            //                setButton(modifyPrice: false, modifyPriceText: "", modifyPriceWidth: 0)
-            //            default:
-            //                pendingPaymentLaber.text = "已完成"
-            //                pendingPaymentLaber.textColor = UIColor.hex(hexString: "#07D781")
-            //                setButton(modifyPrice: false, modifyPriceText: "", modifyPriceWidth: 0)
-            //
-            //            }
+            
             userNameLaber.text = model.name
             userPhoneLaber.text = model.mobile
             if (model.goodsList.count != 0){

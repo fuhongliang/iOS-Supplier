@@ -53,7 +53,7 @@ class UFinancialSettlementListController: UBaseViewController {
         
         service.incomeDetail(page: pageRecord, { (IncomeDetailResponseModel) in
 
-            //TODO 待更改此处写法
+            //待更改此处写法
             let appDelegate  = UIApplication.shared.delegate as! AppDelegate
             let controller = appDelegate.window!.currentController as! UHomeFinancialSettlementController
             
