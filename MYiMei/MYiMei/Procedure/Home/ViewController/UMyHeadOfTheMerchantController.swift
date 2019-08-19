@@ -155,6 +155,29 @@ extension UMyHeadOfTheMerchantController: UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
+    //MARK:每个cell即将显示时回调  在这里处理section的圆角
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let layer = CAShapeLayer()
+        let bounds = cell.bounds;
+      
+        //绘制分割线
+        if (indexPath.row != (tableView.numberOfRows(inSection: 1)-1)) {
+            let lineLayer = CALayer()
+            let lineHeight = /*(1.0 / UIScreen.main.scale)*/ CGFloat(1)
+            lineLayer.frame = CGRect(x: bounds.minX + 15, y: bounds.size.height-lineHeight, width: bounds.size.width - 30, height: lineHeight)
+            lineLayer.backgroundColor = UIColor.hex(hexString: "#F2F2F2").cgColor
+            
+            layer.addSublayer(lineLayer)
+        }
+        
+        let roundView = UIView(frame: bounds)
+        roundView.layer.insertSublayer(layer, at: 0)
+        roundView.backgroundColor = UIColor.clear
+        cell.backgroundView = roundView
+        
+    }
+    
     //MARK:footerView即将显示的时候的回调
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
