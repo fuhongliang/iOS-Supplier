@@ -111,13 +111,13 @@ class UGoodsCell: UBaseTableViewCell {
         goodsEditBtn.layer.masksToBounds = true
         goodsEditBtn.layer.cornerRadius = 2
         goodsEditBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        self.addSubview(goodsEditBtn)
-        goodsEditBtn.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(goodsPopupBtn.snp.right).offset(12)
-            ConstraintMaker.width.equalTo(74)
-            ConstraintMaker.height.equalTo(30)
-            ConstraintMaker.top.equalTo(goodsPopupBtn.snp.top)
-        }
+//        self.addSubview(goodsEditBtn)
+//        goodsEditBtn.snp.makeConstraints { (ConstraintMaker) in
+//            ConstraintMaker.left.equalTo(goodsPopupBtn.snp.right).offset(12)
+//            ConstraintMaker.width.equalTo(74)
+//            ConstraintMaker.height.equalTo(30)
+//            ConstraintMaker.top.equalTo(goodsPopupBtn.snp.top)
+//        }
 
         goodsDeleteBtn.backgroundColor = UIColor.white
         goodsDeleteBtn.layer.borderColor = UIColor.theme.cgColor
@@ -129,10 +129,10 @@ class UGoodsCell: UBaseTableViewCell {
         goodsDeleteBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         self.addSubview(goodsDeleteBtn)
         goodsDeleteBtn.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.left.equalTo(goodsEditBtn.snp.right).offset(12)
+            ConstraintMaker.left.equalTo(goodsPopupBtn.snp.right).offset(12)
             ConstraintMaker.width.equalTo(74)
             ConstraintMaker.height.equalTo(30)
-            ConstraintMaker.top.equalTo(goodsEditBtn.snp.top)
+            ConstraintMaker.top.equalTo(goodsPopupBtn.snp.top)
         }
 
         goodsPopupBtn.addTarget(self, action: #selector(tapGoodsPopupAction), for: UIControl.Event.touchUpInside)
