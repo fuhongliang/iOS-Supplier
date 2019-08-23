@@ -192,7 +192,7 @@ extension UPickingOrdersViewController : UITableViewDelegate, UITableViewDataSou
         orderDetail.goodsCatNum = String(pickList.pick_list?[indexPath.section].goods_count ?? 0)
         orderDetail.goodsNum = String(pickList.pick_list?[indexPath.section].goods_num ?? 0)
         orderDetail.totalPrice = pickList.pick_list?[indexPath.section].total_pay_price ?? ""
-
+        orderDetail.pickStatus = pickList.pick_list?[indexPath.section].pick_status ?? 1
         if (navigationController == nil) {
             let appDelegate  = UIApplication.shared.delegate as! AppDelegate
             let tabBarController = appDelegate.window!.rootViewController as! UTabBarController
@@ -242,9 +242,9 @@ extension UPickingOrdersViewController : UITableViewDelegate, UITableViewDataSou
             })
         }
         
-        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 203))
-        
-        alert.customSubview = subview
+//        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 203))
+//
+//        alert.customSubview = subview
         
         let attr = "是否确认完成拣货?"
         alert.showCustom(attr, subTitle: "", color: UIColor.white, icon: UIImage(), animationStyle: .noAnimation)
