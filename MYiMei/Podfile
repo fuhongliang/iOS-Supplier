@@ -9,7 +9,7 @@ target 'MYiMei' do
   # Pods for MYiMei
 
 pod 'Then'
-pod 'SnapKit', '~> 5.0.0'
+pod 'SnapKit'
 pod 'Moya','12.0.1'
 pod 'HandyJSON','5.0.0-beta'
 pod 'Kingfisher'
