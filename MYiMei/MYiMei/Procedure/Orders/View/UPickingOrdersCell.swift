@@ -283,7 +283,7 @@ class UPickingOrdersCell: UBaseTableViewCell {
             bottomView.snp.makeConstraints{(make)->Void in
                 make.left.equalTo(contentView)
                 make.size.equalTo(1)
-                make.top.equalTo(amountInfoLine.snp.bottom)
+                make.top.equalTo(amountInfoLine)
                 make.bottom.equalTo(contentView)
             }
         } else {

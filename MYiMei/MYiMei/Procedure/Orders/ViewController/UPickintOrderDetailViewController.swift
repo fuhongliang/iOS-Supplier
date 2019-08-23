@@ -19,7 +19,7 @@ class UPickintOrderDetailViewController : UBaseViewController {
     
     private let service = APIOrderServices()
     
-    
+    var pickStatus = 0
     var pickID = ""
     var addTime = ""
     var goodsCatNum = ""
@@ -69,8 +69,11 @@ extension UPickintOrderDetailViewController : UITableViewDelegate, UITableViewDa
         if !isRequestOrderDetail {
             return 0 //如果请求未完成则不显示
         }
-        
-        return 3
+        if pickStatus == 0{
+            return 3
+        } else {
+            return 2
+        }
     }
     
     //MARK:
@@ -133,6 +136,7 @@ extension UPickintOrderDetailViewController : UITableViewDelegate, UITableViewDa
             }
         } else {
             if (indexPath.row == 0){
+                //如果是未拣货
                 if indexPath.section == 2 {
                     return getSectionTitleCell(index: indexPath, title: "完成拣货", textDirection: .center)
                 }
@@ -155,6 +159,12 @@ extension UPickintOrderDetailViewController : UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             //TODO--完成拣货货接口
+            self.service.setPick(huodanId:Int(pickID) ?? 0, {
+                showHUDInView(text: "拣货成功", inView: self.view)
+            }, { (APIErrorModel) in
+                showHUDInView(text: "拣货失败", inView: self.view)
+                print(APIErrorModel.msg ?? "........")
+            })
         }
     }
     
