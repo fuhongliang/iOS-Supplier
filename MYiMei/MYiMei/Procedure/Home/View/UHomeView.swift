@@ -303,7 +303,7 @@ class UHomeView: BaseView {
             ConstraintMaker.top.equalTo(salerLine.snp.bottom).offset(15)
             ConstraintMaker.width.equalTo(salesWhiteBg.snp.width).dividedBy(3)
         }
-        pendingPayLaber.text = "待付款"
+        pendingPayLaber.text = "待拣货"
         pendingPayLaber.textColor = UIColor.hex(hexString: "#999999")
         pendingPayLaber.font = UIFont.systemFont(ofSize: 12)
         pendingPayLaber.textAlignment = .center
@@ -327,7 +327,7 @@ class UHomeView: BaseView {
             ConstraintMaker.width.equalTo(6)
             ConstraintMaker.height.equalTo(9)
         }
-        pendingPayNumberLaber.text = "245"
+        pendingPayNumberLaber.text = ""
         pendingPayNumberLaber.textColor = UIColor.black
         pendingPayNumberLaber.font = UIFont.systemFont(ofSize: 16)
         pendingPayLayerView.addSubview(pendingPayNumberLaber)
@@ -342,7 +342,7 @@ class UHomeView: BaseView {
             ConstraintMaker.top.equalTo(salerLine.snp.bottom).offset(15)
             ConstraintMaker.width.equalTo(salesWhiteBg.snp.width).dividedBy(3)
         }
-        wiatDeliveryLaber.text = "待发货"
+        wiatDeliveryLaber.text = "待配货"
         wiatDeliveryLaber.textColor = UIColor.hex(hexString: "#999999")
         wiatDeliveryLaber.font = UIFont.systemFont(ofSize: 12)
         wiatDeliveryLaber.textAlignment = .center
@@ -366,7 +366,7 @@ class UHomeView: BaseView {
             ConstraintMaker.width.equalTo(6)
             ConstraintMaker.height.equalTo(9)
         }
-        wiatDeliveryNumberLaber.text = "245"
+        wiatDeliveryNumberLaber.text = ""
         wiatDeliveryNumberLaber.textColor = UIColor.black
         wiatDeliveryNumberLaber.font = UIFont.systemFont(ofSize: 16)
         wiatDeliveryLayerView.addSubview(wiatDeliveryNumberLaber)
@@ -381,7 +381,7 @@ class UHomeView: BaseView {
             ConstraintMaker.top.equalTo(salerLine.snp.bottom).offset(15)
             ConstraintMaker.width.equalTo(salesWhiteBg.snp.width).dividedBy(3)
         }
-        activistOrderLaber.text = "维权订单"
+        activistOrderLaber.text = "商品"
         activistOrderLaber.textColor = UIColor.hex(hexString: "#999999")
         activistOrderLaber.font = UIFont.systemFont(ofSize: 12)
         activistOrderLaber.textAlignment = .center
@@ -405,7 +405,7 @@ class UHomeView: BaseView {
             ConstraintMaker.width.equalTo(6)
             ConstraintMaker.height.equalTo(9)
         }
-        activistOrderNumberLaber.text = "245"
+        activistOrderNumberLaber.text = ""
         activistOrderNumberLaber.textColor = UIColor.black
         activistOrderNumberLaber.font = UIFont.systemFont(ofSize: 16)
         activistOrderLayerView.addSubview(activistOrderNumberLaber)
