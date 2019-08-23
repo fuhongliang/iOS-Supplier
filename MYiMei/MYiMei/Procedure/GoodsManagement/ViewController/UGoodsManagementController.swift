@@ -121,9 +121,9 @@ class UGoodsManagementController: UBaseViewController {
 //        //MARK:管理分类
 //        bottomTab.addManageCategoryBtn.addTarget(self, action: #selector(showManageCategoryView), for: UIControl.Event.touchUpInside)
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add_bar_right"),
-                                                            target: self,
-                                                            action: #selector(handleAddBarButtonItem(_:event:)))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add_bar_right"),
+//                                                            target: self,
+//                                                            action: #selector(handleAddBarButtonItem(_:event:)))
 
         self.view.addSubview(categoryTableView)
         categoryTableView.snp.makeConstraints { (ConstraintMaker) in
