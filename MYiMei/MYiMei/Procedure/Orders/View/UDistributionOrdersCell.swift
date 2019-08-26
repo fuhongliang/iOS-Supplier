@@ -14,13 +14,13 @@ class UDistributionOrdersCell: UBaseTableViewCell {
     var callTheClient : (() -> ())?
     
     //MARK:拣货单号
-    var orderNoLabel:UILabel = {
-        let ul = UILabel()
-        ul.text = "拣货单号:"
-        ul.textColor = UIColor.hex(hexString: "#999999")
-        ul.font = UIFont.systemFont(ofSize: 14)
-        return ul
-    }()
+//    var orderNoLabel:UILabel = {
+//        let ul = UILabel()
+//        ul.text = "拣货单号:"
+//        ul.textColor = UIColor.hex(hexString: "#999999")
+//        ul.font = UIFont.systemFont(ofSize: 14)
+//        return ul
+//    }()
     
     //MARK:生成时间
     var generateTime : UILabel = {
@@ -216,18 +216,18 @@ class UDistributionOrdersCell: UBaseTableViewCell {
         }
         
         //MARK:订单号
-        contentView.addSubview(orderNoLabel)
-        orderNoLabel.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.top.equalTo(topView).offset(11)
-            ConstraintMaker.left.equalToSuperview().offset(15)
-        }
+//        contentView.addSubview(orderNoLabel)
+//        orderNoLabel.snp.makeConstraints { (ConstraintMaker) in
+//            ConstraintMaker.top.equalTo(topView).offset(11)
+//            ConstraintMaker.left.equalToSuperview().offset(15)
+//        }
         
         //MARK:生成时间
         contentView.addSubview(generateTime)
         generateTime.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.top.equalTo(orderNoLabel.snp.bottom).offset(8)
+//            ConstraintMaker.top.equalTo(orderNoLabel.snp.bottom).offset(8)
             ConstraintMaker.left.equalToSuperview().offset(15)
-//            ConstraintMaker.top.equalToSuperview()
+            ConstraintMaker.top.equalToSuperview()
             ConstraintMaker.bottom.equalTo(orderLine)
         }
         
@@ -421,7 +421,7 @@ class UDistributionOrdersCell: UBaseTableViewCell {
         didSet {
             guard let model = model else { return }
             
-            orderNoLabel.text = "配货单号:\(String(model.deliver_id) )"
+//            orderNoLabel.text = "配货单号:\(String(model.deliver_id) )"
             generateTime.text = "生成时间:\(dateForMatter(timeString: model.addtime, join: " "))"
             if model.is_send == 0 {
                 orderStatus.text = "待发货"
@@ -434,6 +434,8 @@ class UDistributionOrdersCell: UBaseTableViewCell {
             }
             
             addressLabel.text = model.district
+            userNameLabel.text = model.name
+            userPhoneLabel.text = model.mobile
             
 //            if (model.list.count != 0){
             goodsNameLabel.text = model.goods_info.name

@@ -184,7 +184,7 @@ class UOrderDetailInfoHavePhoneCell : UBaseTableViewCell {
         }
         freightRightLaber.text = "0.00元"
         freightRightLaber.textColor = UIColor.hex(hexString: "#333333")
-        freightRightLaber.textAlignment = .left
+        freightRightLaber.textAlignment = .right
         freightRightLaber.font = UIFont.systemFont(ofSize: 14)
         freightLayer.addSubview(freightRightLaber)
         freightRightLaber.snp.makeConstraints { (ConstraintMaker) in

@@ -21,7 +21,7 @@ class UDistributionOrdersViewController : UBaseViewController {
     var loadMoreView = UIView()
     
     /*
-     订单类型:商品拣货单
+     订单类型:配货单
      */
     var orderType = 1
     
@@ -239,16 +239,13 @@ extension UDistributionOrdersViewController : UITableViewDelegate, UITableViewDa
         alert.addButton("确定",textColor:UIColor.hex(hexString: "#1C98F6")) {
             self.service.setDeliver(deliverId: deliverId, {
                 showHUDInView(text: "配货成功", inView: self.view)
+                self.refreshOrderData()
             }, { (APIErrorModel) in
                 print(APIErrorModel.msg ?? ".........")
             })
         }
         
-        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 203))
-        
-        alert.customSubview = subview
-        
-        let attr = "是否确认完成拣货?"
+        let attr = "是否确认完成配货?"
         alert.showCustom(attr, subTitle: "", color: UIColor.white, icon: UIImage(), animationStyle: .noAnimation)
     }
 

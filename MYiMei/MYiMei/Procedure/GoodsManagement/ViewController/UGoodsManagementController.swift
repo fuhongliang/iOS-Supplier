@@ -121,9 +121,9 @@ class UGoodsManagementController: UBaseViewController {
 //        //MARK:管理分类
 //        bottomTab.addManageCategoryBtn.addTarget(self, action: #selector(showManageCategoryView), for: UIControl.Event.touchUpInside)
 
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add_bar_right"),
-//                                                            target: self,
-//                                                            action: #selector(handleAddBarButtonItem(_:event:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add_bar_right"),
+                                                            target: self,
+                                                            action: #selector(handleAddBarButtonItem(_:event:)))
 
         self.view.addSubview(categoryTableView)
         categoryTableView.snp.makeConstraints { (ConstraintMaker) in
@@ -151,15 +151,15 @@ class UGoodsManagementController: UBaseViewController {
         cellConfi.cellMargin = 16
         let cellConfis = Array(repeating: cellConfi, count: 4)
         FTPopOverMenu.showForEvent(event: event,
-                                   with: ["新建分类",/* "发布商品",*/ "管理分类"],
-                                   menuImageArray: ["new_category",/*"add_goods",*/"management_category"],
+                                   with: ["新建分类","发布商品", "管理分类"],
+                                   menuImageArray: ["new_category","add_goods","management_category"],
                                    cellConfigurationArray: cellConfis,
                                    done: { (selectedIndex) -> () in
                                     if selectedIndex == 0 {
                                         self.showAddCategoryView()
-                                    } /*else if selectedIndex == 1 {
+                                    } else if selectedIndex == 1 {
                                         self.showGoodDetailView()
-                                    } */else {
+                                    } else {
                                         self.showManageCategoryView()
                                     }
         }) {

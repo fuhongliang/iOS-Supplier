@@ -152,7 +152,8 @@ class APIOrderServices: APIOrderServicesProtocol {
                 let model = try JSONDecoder().decode(PickGoodsResponseModel.self, from: data)
                 success(model)
             } catch {
-                let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败", _data: nil)
+                print("解析失败\(error)")
                 fail(errorModel)
             }
         }) { (APIErrorModel) in
@@ -192,6 +193,7 @@ class APIOrderServices: APIOrderServicesProtocol {
                 success(model)
             } catch {
                 let errorModel = APIErrorModel.getErrorModel(_code: nil, _msg: "解析失败\(error)", _data: nil)
+                print("解析失败\(error)")
                 fail(errorModel)
             }
         }) { (APIErrorModel) in

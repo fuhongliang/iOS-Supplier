@@ -163,7 +163,7 @@ extension UPickintOrderDetailViewController : UITableViewDelegate, UITableViewDa
                 showHUDInView(text: "拣货成功", inView: self.view)
             }, { (APIErrorModel) in
                 showHUDInView(text: "拣货失败", inView: self.view)
-                print(APIErrorModel.msg ?? "........")
+                print(APIErrorModel.msg ?? "请求异常")
             })
         }
     }

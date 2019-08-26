@@ -25,16 +25,16 @@ class GoodsListModel: Codable {
     var pic = String()
     var attr : [Attr]!
     var name = String()
-    var total_price = Double()
+    var total_price = String()
     var goods_id = Int()
 }
 
 class DeliverListModel : Codable {
     var deliver_id = Int()
-    var huodan_mch_id = Int()
+    var huodan_id = Int()
     var is_send = Int()
     var addtime = Int()
-    var total_price = Double()
+    var total_price = String()
     var num = Int()
     var goods_attr_count = Int()
     var share_id = Int()
