@@ -22,6 +22,10 @@ class UHomeController: UBaseViewController {
     
     var depostReview = false
     
+    var requestTime = 0//请求完成的次数
+    
+    let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mHomeView.delegate = self
@@ -32,10 +36,25 @@ class UHomeController: UBaseViewController {
     
     override func configUI() {
         mHomeView.setView()
-        view.addSubview(mHomeView)
-        mHomeView.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        scrollView.backgroundColor = UIColor.hex(hexString: "#F5F5F5")
+        
+        scrollView.addSubview(mHomeView)
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.uHead = URefreshHeader { [weak self] in
+            self?.requestTime = 0
+            self?.getStoreData()
+            self?.getStoreInfo()
+            self?.getStoreDepost()
+            self?.judgeRequest()
         }
+        mHomeView.snp.updateConstraints { (make) -> Void in
+            make.width.equalTo(screenWidth)
+            make.height.equalTo(screenHeight+30)
+            make.top.leading.trailing.bottom.equalTo(scrollView)
+        }
+        scrollView.contentSize = CGSize(width: screenWidth, height: screenHeight+30)
+        
+        view.addSubview(scrollView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -211,6 +230,20 @@ class UHomeController: UBaseViewController {
         mHomeView.chartView.data = chartData
     }
     
+    //MARK:判断多请求是否请求完成 停止刷新
+    func judgeRequest(){
+        let queue = DispatchQueue(label: "judgeRequest")
+        queue.async {
+            while true {
+                if self.requestTime >= 3 {
+                    self.scrollView.uHead.endRefreshing()
+                    return
+                }
+            }
+        }
+    }
+    
+
     //MARK:获取店铺经营数据
     func getStoreData() {
         self.service.getStoreOperateData({ (StoreDashBoardModel) in
@@ -232,9 +265,10 @@ class UHomeController: UBaseViewController {
                 self.mHomeView.payOrderNumberLaber.text = String(self.storeData.store?.sell_statistics_total?.order_num ?? 0)
                 self.mHomeView.payAmountNumberLaber.text = self.storeData.store?.sell_statistics_total?.order_price ?? "0"
             }
-            
+            self.requestTime += 1
         }) { (APIErrorModel) in
             showHUDInView(text: String(APIErrorModel.msg ?? ""), inView: self.view)
+            self.requestTime += 1
         }
     }
     
@@ -244,8 +278,9 @@ class UHomeController: UBaseViewController {
             let url = URL(string: StoreInfoModel.data.mch?.logo ?? "")
             self.mHomeView.storeAvatarIcon.kf.setImage(with: url)
             self.mHomeView.storeNameLaber.text = StoreInfoModel.data.mch?.name
+            self.requestTime += 1
         }) { (APIErrorModel) in
-            
+            self.requestTime += 1
         }
     }
     
@@ -265,9 +300,10 @@ class UHomeController: UBaseViewController {
             
             self.mHomeView.depost.menuIcon.image = UIImage.init(named: self.depostPass ? "menu_margin" : "depost_empty")
 
-            
+            self.requestTime += 1
         }, { (APIErrorModel) in
             showHUDInView(text: APIErrorModel.msg ?? "网络错误", inView: self.view)
+            self.requestTime += 1
         })
     }
     

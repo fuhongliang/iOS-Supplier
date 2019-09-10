@@ -150,7 +150,8 @@ extension UDistributionOrdersViewController : UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UDistributionOrdersCell.self)
         
         cell.callTheClient = {
-            self.callTheClient(index: indexPath.section)
+            MYiMei.callTheClient(phoneNumber: self.orderList.list?[indexPath.section].mobile ?? "")
+//            self.callTheClient(index: indexPath.section)
         }
         
         cell.compeletDistribution = {

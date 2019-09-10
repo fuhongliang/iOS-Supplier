@@ -27,7 +27,7 @@ let loadingPlugin = NetworkActivityPlugin { (type, target) in
         MBProgressHUD.hide(for: vc.view, animated: false)
         MBProgressHUD.showAdded(to: vc.view, animated: true)
     case .ended:
-        MBProgressHUD.hide(for: vc.view, animated: true)
+        MBProgressHUD.hide(for: vc.view, animated: false)
     }
 }
 
@@ -71,6 +71,7 @@ enum NetApi {
     case deleteGoodsCat(param:[String:String])
     case editGoodsCat(param:[String:Any])
     case addGoods(param:[String:Any])
+    case modifyGoods(param:[String:Any])
     case getMchPtCats(param: [String:Any])
     case getExpressList(param: [String:Any])
     case getOrderDetail(param: [String:Any])
@@ -159,6 +160,8 @@ extension NetApi: TargetType {
             return "/modify_goods_cat"
         case .addGoods:
             return "/add_goods"
+        case .modifyGoods:
+            return "/modify_goods"
         case .getMchPtCats:
             return "/mch_pt_cats"
         case .getExpressList:
@@ -170,7 +173,7 @@ extension NetApi: TargetType {
         case .setMessageNoticeRead:
             return "/message_notice/readNotice"
         case .getGoodsDetail:
-            return "/goods_detail"
+            return "/goods_details"
         case .getCommentList:
             return "/comment_list"
         case .delOrHideComment:
@@ -210,7 +213,7 @@ extension NetApi: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .addShare,.delShare,.listShare,.setDeliver,.setPick,.deliverGoodsDetail,.deliverGoods,.pickOrderDetail,.pickGoods,.applyCashOut,.cashOutRecord,.incomeDetail,.handleRefundOrder,.getRefundOrder,.replyComment,.delOrHideComment,.getCommentList,.setMessageNoticeRead,.getMessageNotice,.getOrderDetail,.getExpressList,.getMchPtCats,.addGoods,.modifyStoreInfo,.storeInfo,.pushDepost,.getDepositAgreement,.getOrderList,.getStoreOperateData,.getMchCommonCatId,.applyJoin,.uploadPic,.login,.logout,.getCategory,.getLoginMsg,.getGoodsList,.deleteGoods,.modifyGoodsStatus,.getChangePasswordVerificationCode,.modifyPwd,.modifyOrderPrice,.deliveryGoods,.getStoreDepostData,.addGoodsCat,.deleteGoodsCat,.editGoodsCat,.getGoodsDetail:
+        case .addShare,.delShare,.listShare,.setDeliver,.setPick,.deliverGoodsDetail,.deliverGoods,.pickOrderDetail,.pickGoods,.applyCashOut,.cashOutRecord,.incomeDetail,.handleRefundOrder,.getRefundOrder,.replyComment,.delOrHideComment,.getCommentList,.setMessageNoticeRead,.getMessageNotice,.getOrderDetail,.getExpressList,.getMchPtCats,.addGoods,.modifyGoods,.modifyStoreInfo,.storeInfo,.pushDepost,.getDepositAgreement,.getOrderList,.getStoreOperateData,.getMchCommonCatId,.applyJoin,.uploadPic,.login,.logout,.getCategory,.getLoginMsg,.getGoodsList,.deleteGoods,.modifyGoodsStatus,.getChangePasswordVerificationCode,.modifyPwd,.modifyOrderPrice,.deliveryGoods,.getStoreDepostData,.addGoodsCat,.deleteGoodsCat,.editGoodsCat,.getGoodsDetail:
           return .post
 
         }
@@ -271,6 +274,8 @@ extension NetApi: TargetType {
         case .editGoodsCat(let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .addGoods(let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .modifyGoods(let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .getMchPtCats(let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)

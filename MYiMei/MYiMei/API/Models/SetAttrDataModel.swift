@@ -20,3 +20,14 @@ struct AttrData {
     var attrName = String()
 }
 
+//具体商品的每个规格的数据源
+class AttrArray {
+    var attrValueArray = [AttrValue]()
+}
+struct AttrValue {
+    var attrName = String("")
+    var inventory = String("0")//库存
+    var price = String("0.0")//价格
+    var goodsNumber = String("")//货号
+}
+

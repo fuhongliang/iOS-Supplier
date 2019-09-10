@@ -132,12 +132,15 @@ class RichEditorViewController: UBaseViewController ,TLPhotosPickerViewControlle
     func getFirstSelectedImage() {
         if let asset = self.selectedAssets.first {
             if let imageView = asset.fullResolutionImage {
-//                self.goodsDetailView.addGoodsCoverPic.setBackgroundImage(image, for: UIControl.State.normal)
+                if self.goodsDescrView.editorView.html == "" {
+                    //选择图片回来的时候判断是否有头部 没有则加上
+                    self.goodsDescrView.editorView.html = htmlhead
+                }
                 self.image = imageView
                 self.uploadPic()
             }else {
                 print("Can't get image at local storage, try download image")
-                asset.cloudImageDownload(progressBlock: { [weak self] (progress) in
+                asset.cloudImageDownload(progressBlock: { (progress) in
                     DispatchQueue.main.async {
                         print(progress)
                     }

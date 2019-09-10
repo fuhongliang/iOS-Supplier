@@ -30,7 +30,21 @@ class UWeChatWithdrawController: UBaseViewController {
     
     //微信提现接口
     @objc func submitCashOut() {
-        let cashOutMoney = Double(mWeChatWithdrawView.withdrawalAmountNumberEdit.text ?? "0.0")!
+        
+        if mWeChatWithdrawView.withdrawalAmountNumberEdit.text == "" {
+            showHUDInView(text: "请填写提现金额", inView: self.view)
+            return
+        }
+        if mWeChatWithdrawView.weChatNameEdit.text == "" {
+            showHUDInView(text: "请填写微信名称", inView: self.view)
+            return
+        }
+        if mWeChatWithdrawView.weChatNumberEdit.text == "" {
+            showHUDInView(text: "请填写微信号", inView: self.view)
+            return
+        }
+        
+        let cashOutMoney = Double(mWeChatWithdrawView.withdrawalAmountNumberEdit.text ?? "0") ?? 0
         if cashOutMoney > maxAmount {
             showHUDInView(text: "余额不足", inView: self.view)
             return

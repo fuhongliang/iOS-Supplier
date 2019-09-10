@@ -153,12 +153,6 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
         
     }
     
-    
-    //MARK:footerView即将显示的时候的回调
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        
-    }
-    
     //MARK:点击事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
@@ -276,6 +270,9 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
             cell.userPhoneLabel.text = userPhone
             cell.addressLabel.text = userAddress
             
+            cell.callTheClient = {
+                callTheClient(phoneNumber: userPhone)
+            }
             
             return cell
         }

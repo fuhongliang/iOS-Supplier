@@ -93,7 +93,7 @@ class UHeadOfTheMerchantCell: UBaseTableViewCell {
             guard model != nil else { return }
             headName.text = model!.name
             headAddress.text = model!.address
-            headIcon.setImageUrl(url: model!.avatar_url)
+            headIcon.load(model!.avatar_url)
             
         }
         

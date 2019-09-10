@@ -113,7 +113,7 @@
 		DC18272322E06181005F9410 /* UModifyPriceAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC18271C22E06181005F9410 /* UModifyPriceAlertView.swift */; };
 		DC18272422E06181005F9410 /* UOrderDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC18271D22E06181005F9410 /* UOrderDetailInfoCell.swift */; };
 		DC18272522E06181005F9410 /* UOrderDetailGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC18271E22E06181005F9410 /* UOrderDetailGoodsCell.swift */; };
-		DC186B3D22F917D7003B6001 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC186B3C22F917D7003B6001 /* File.swift */; };
+		DC186B3D22F917D7003B6001 /* SQBMF.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC186B3C22F917D7003B6001 /* SQBMF.swift */; };
 		DC186B3F22F92E99003B6001 /* UDistributionOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC186B3E22F92E99003B6001 /* UDistributionOrdersCell.swift */; };
 		DC186B4122F94FAA003B6001 /* UPickingOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC186B4022F94FAA003B6001 /* UPickingOrdersViewController.swift */; };
 		DC186B4322F9518C003B6001 /* UDistributionOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC186B4222F9518C003B6001 /* UDistributionOrdersViewController.swift */; };
@@ -159,6 +159,12 @@
 		DC2C798122F280C600E5A4D7 /* UHomeWithdrawalsRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C798022F280C600E5A4D7 /* UHomeWithdrawalsRecordCell.swift */; };
 		DC2C798322F28B0400E5A4D7 /* IncomeDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C798222F28B0400E5A4D7 /* IncomeDetailResponseModel.swift */; };
 		DC2C798522F28C1F00E5A4D7 /* CashOutRecordResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C798422F28C1F00E5A4D7 /* CashOutRecordResponseModel.swift */; };
+		DC2CC9EB232261480053F42B /* UChooseAttrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CC9EA232261480053F42B /* UChooseAttrController.swift */; };
+		DC2CC9F12322653A0053F42B /* UAttrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CC9EC2322653A0053F42B /* UAttrCell.swift */; };
+		DC2CC9F22322653A0053F42B /* USetAllAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CC9ED2322653A0053F42B /* USetAllAlertView.swift */; };
+		DC2CC9F32322653A0053F42B /* UBatchSetPriceInventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CC9EE2322653A0053F42B /* UBatchSetPriceInventoryCell.swift */; };
+		DC2CC9F42322653A0053F42B /* UAddAttrGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CC9EF2322653A0053F42B /* UAddAttrGroupCell.swift */; };
+		DC2CC9F52322653A0053F42B /* UAttrGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CC9F02322653A0053F42B /* UAttrGroupCell.swift */; };
 		DC30C53E22DC717D00F8B03B /* UOrdersChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC30C53D22DC717D00F8B03B /* UOrdersChildViewController.swift */; };
 		DC32F62A22D468B900EBB75E /* UDepositAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32F62922D468B900EBB75E /* UDepositAgreementView.swift */; };
 		DC32F62C22D46C8800EBB75E /* UDepositAgreementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32F62B22D46C8800EBB75E /* UDepositAgreementController.swift */; };
@@ -192,6 +198,7 @@
 		DCA1BEC422F834DA004D684B /* PickerPresentAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1BEC322F834DA004D684B /* PickerPresentAnimated.swift */; };
 		DCA1BEC622F85CE7004D684B /* UPickingOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1BEC522F85CE7004D684B /* UPickingOrdersCell.swift */; };
 		DCAB0BB422F57EF30086005C /* HTML_Files in Resources */ = {isa = PBXBuildFile; fileRef = DCAB0BB322F57EF30086005C /* HTML_Files */; };
+		DCB0643A2325F11D0094727C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB064392325F11D0094727C /* Utils.swift */; };
 		DCCAFD1E22F29BC900525611 /* UCashOutRecordListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAFD1D22F29BC900525611 /* UCashOutRecordListController.swift */; };
 		DCCAFD2222F2F05B00525611 /* ApplyCashOutTypeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAFD2122F2F05B00525611 /* ApplyCashOutTypeDataModel.swift */; };
 		DCCAFD2422F2F66400525611 /* UBankCardWithdrawController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAFD2322F2F66400525611 /* UBankCardWithdrawController.swift */; };
@@ -343,7 +350,7 @@
 		DC18271C22E06181005F9410 /* UModifyPriceAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UModifyPriceAlertView.swift; sourceTree = "<group>"; };
 		DC18271D22E06181005F9410 /* UOrderDetailInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UOrderDetailInfoCell.swift; sourceTree = "<group>"; };
 		DC18271E22E06181005F9410 /* UOrderDetailGoodsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UOrderDetailGoodsCell.swift; sourceTree = "<group>"; };
-		DC186B3C22F917D7003B6001 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DC186B3C22F917D7003B6001 /* SQBMF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQBMF.swift; sourceTree = "<group>"; };
 		DC186B3E22F92E99003B6001 /* UDistributionOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDistributionOrdersCell.swift; sourceTree = "<group>"; };
 		DC186B4022F94FAA003B6001 /* UPickingOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPickingOrdersViewController.swift; sourceTree = "<group>"; };
 		DC186B4222F9518C003B6001 /* UDistributionOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDistributionOrdersViewController.swift; sourceTree = "<group>"; };
@@ -389,6 +396,12 @@
 		DC2C798022F280C600E5A4D7 /* UHomeWithdrawalsRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UHomeWithdrawalsRecordCell.swift; sourceTree = "<group>"; };
 		DC2C798222F28B0400E5A4D7 /* IncomeDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDetailResponseModel.swift; sourceTree = "<group>"; };
 		DC2C798422F28C1F00E5A4D7 /* CashOutRecordResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOutRecordResponseModel.swift; sourceTree = "<group>"; };
+		DC2CC9EA232261480053F42B /* UChooseAttrController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UChooseAttrController.swift; sourceTree = "<group>"; };
+		DC2CC9EC2322653A0053F42B /* UAttrCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAttrCell.swift; sourceTree = "<group>"; };
+		DC2CC9ED2322653A0053F42B /* USetAllAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USetAllAlertView.swift; sourceTree = "<group>"; };
+		DC2CC9EE2322653A0053F42B /* UBatchSetPriceInventoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBatchSetPriceInventoryCell.swift; sourceTree = "<group>"; };
+		DC2CC9EF2322653A0053F42B /* UAddAttrGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAddAttrGroupCell.swift; sourceTree = "<group>"; };
+		DC2CC9F02322653A0053F42B /* UAttrGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAttrGroupCell.swift; sourceTree = "<group>"; };
 		DC30C53D22DC717D00F8B03B /* UOrdersChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UOrdersChildViewController.swift; sourceTree = "<group>"; };
 		DC32F62922D468B900EBB75E /* UDepositAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDepositAgreementView.swift; sourceTree = "<group>"; };
 		DC32F62B22D46C8800EBB75E /* UDepositAgreementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDepositAgreementController.swift; sourceTree = "<group>"; };
@@ -423,6 +436,7 @@
 		DCA1BEC322F834DA004D684B /* PickerPresentAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerPresentAnimated.swift; sourceTree = "<group>"; };
 		DCA1BEC522F85CE7004D684B /* UPickingOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPickingOrdersCell.swift; sourceTree = "<group>"; };
 		DCAB0BB322F57EF30086005C /* HTML_Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML_Files; sourceTree = "<group>"; };
+		DCB064392325F11D0094727C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DCCAFD1D22F29BC900525611 /* UCashOutRecordListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCashOutRecordListController.swift; sourceTree = "<group>"; };
 		DCCAFD2122F2F05B00525611 /* ApplyCashOutTypeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCashOutTypeDataModel.swift; sourceTree = "<group>"; };
 		DCCAFD2322F2F66400525611 /* UBankCardWithdrawController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBankCardWithdrawController.swift; sourceTree = "<group>"; };
@@ -678,6 +692,7 @@
 				7BAB352B22C0CFDB00154D36 /* Base */,
 				7BAB353422C0D0A700154D36 /* ManageOrders */,
 				7BAB352122C0C56400154D36 /* Global.swift */,
+				DCB064392325F11D0094727C /* Utils.swift */,
 			);
 			path = Procedure;
 			sourceTree = "<group>";
@@ -939,6 +954,11 @@
 				7B9EB94922C4988E003D9121 /* UGoodsDetailView.swift */,
 				DC1AB94F22D092D9003C0EA3 /* UClassEditView.swift */,
 				7BF06EC922E83A8C00DE9851 /* UGoodsDescrView.swift */,
+				DC2CC9EF2322653A0053F42B /* UAddAttrGroupCell.swift */,
+				DC2CC9EC2322653A0053F42B /* UAttrCell.swift */,
+				DC2CC9F02322653A0053F42B /* UAttrGroupCell.swift */,
+				DC2CC9EE2322653A0053F42B /* UBatchSetPriceInventoryCell.swift */,
+				DC2CC9ED2322653A0053F42B /* USetAllAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -951,6 +971,7 @@
 				7B9EB94522C4946D003D9121 /* UGoodsDetailsController.swift */,
 				DC1AB95122D0984C003C0EA3 /* UClassEditController.swift */,
 				7BF06EC122E8034C00DE9851 /* RichEditorViewController.swift */,
+				DC2CC9EA232261480053F42B /* UChooseAttrController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -982,7 +1003,7 @@
 		DC186B3B22F917B3003B6001 /* Supplier */ = {
 			isa = PBXGroup;
 			children = (
-				DC186B3C22F917D7003B6001 /* File.swift */,
+				DC186B3C22F917D7003B6001 /* SQBMF.swift */,
 			);
 			path = Supplier;
 			sourceTree = "<group>";
@@ -1237,9 +1258,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2CC9F32322653A0053F42B /* UBatchSetPriceInventoryCell.swift in Sources */,
 				DC81B07D22E82C1600A47A58 /* UHomeController.swift in Sources */,
 				DC5F9BE322FD1D0400BA1E31 /* DeliverGoodsResponseModel.swift in Sources */,
 				DC18A52722E2BD3F00451E10 /* UOrdersCancleController.swift in Sources */,
+				DC2CC9EB232261480053F42B /* UChooseAttrController.swift in Sources */,
 				DCE3157722EEEB7200086EA7 /* FTConfiguration.swift in Sources */,
 				7BB7666522D2CCBB0019E564 /* CustomPhotoPickerViewController.swift in Sources */,
 				7BAB352A22C0CDF500154D36 /* APIUser.swift in Sources */,
@@ -1249,6 +1272,7 @@
 				DC18272322E06181005F9410 /* UModifyPriceAlertView.swift in Sources */,
 				DC8815F722F02B9300901D71 /* URefundOrderController.swift in Sources */,
 				DC77E9AB22D571D400E92E25 /* APIDepositService.swift in Sources */,
+				DC2CC9F42322653A0053F42B /* UAddAttrGroupCell.swift in Sources */,
 				0ADF510A22EEE8AC00D2DF97 /* UHomeEvaluationCell.swift in Sources */,
 				0AB057BF22D74074002B7E40 /* UModifySetUpShopView.swift in Sources */,
 				7B9EB94A22C4988E003D9121 /* UGoodsDetailView.swift in Sources */,
@@ -1264,7 +1288,7 @@
 				7BAB352222C0C56400154D36 /* Global.swift in Sources */,
 				7B6ADDE422E2BBA400BCF9C6 /* PlaceholderTextView.swift in Sources */,
 				DC264EEA22D324D8001FDAD6 /* USettingDeliveryView.swift in Sources */,
-				DC186B3D22F917D7003B6001 /* File.swift in Sources */,
+				DC186B3D22F917D7003B6001 /* SQBMF.swift in Sources */,
 				DC18271F22E06181005F9410 /* UOrderDetailConfirmBtnCell.swift in Sources */,
 				DC221C8222CF02FE003A4053 /* UFeedBackView.swift in Sources */,
 				7BAB354422C0D6FA00154D36 /* UIBarButtonItemExtension.swift in Sources */,
@@ -1278,6 +1302,7 @@
 				DC264EEC22D3266B001FDAD6 /* USettingDeliveryController.swift in Sources */,
 				7BAB34F122C0AE1200154D36 /* ViewController.swift in Sources */,
 				7B9EB94622C4946D003D9121 /* UGoodsDetailsController.swift in Sources */,
+				DC2CC9F52322653A0053F42B /* UAttrGroupCell.swift in Sources */,
 				DC18A51922E2B35400451E10 /* UOrderNotSendCell.swift in Sources */,
 				DC186B4522F953E7003B6001 /* UPickintOrderDetailViewController.swift in Sources */,
 				7B2DE2AB22D57DDF00AD6FDD /* MchApplyResponeModel.swift in Sources */,
@@ -1378,6 +1403,7 @@
 				DC221C8C22CF4462003A4053 /* UShopLabelCell.swift in Sources */,
 				7B18ADFF22D5ED4D00331B10 /* ApplyCatModel.swift in Sources */,
 				0ADF511822F030E500D2DF97 /* UWeChatWithdrawController.swift in Sources */,
+				DC2CC9F22322653A0053F42B /* USetAllAlertView.swift in Sources */,
 				0ADF511422F02A0B00D2DF97 /* UHomeFinancialCell.swift in Sources */,
 				7B08931F22D715CD00872136 /* UDepostPostController.swift in Sources */,
 				7B2C3B3922EED07900C452E9 /* JPushRegistrationID.swift in Sources */,
@@ -1394,6 +1420,7 @@
 				7BAB355A22C1B90600154D36 /* ParallaxHeader.swift in Sources */,
 				DCCAFD1E22F29BC900525611 /* UCashOutRecordListController.swift in Sources */,
 				0ADF510E22F0173000D2DF97 /* UHomeFinancialSettlementView.swift in Sources */,
+				DC2CC9F12322653A0053F42B /* UAttrCell.swift in Sources */,
 				0A0FF6C822CA013C003F4B53 /* UMechJoinViewController.swift in Sources */,
 				DC14816B22CD95A100018EED /* UAccountSafeView.swift in Sources */,
 				DCE3157922EEEB7200086EA7 /* UIControl+Point.swift in Sources */,
@@ -1410,6 +1437,7 @@
 				DC18A51722E2B26400451E10 /* UOrderNotPayCell.swift in Sources */,
 				DC1ACCC622F568FA0075210F /* UPlatformManagerDelegateController.swift in Sources */,
 				0ADF511022F01B7B00D2DF97 /* UHomeFinancialSettlementController.swift in Sources */,
+				DCB0643A2325F11D0094727C /* Utils.swift in Sources */,
 				DC18A52122E2B5DE00451E10 /* UOrdersUnprocessedViewController.swift in Sources */,
 				DC2BE7BA22F19AC000D63C37 /* UIViewExtension.swift in Sources */,
 				DCCCBCED22E9D5980087DBF8 /* UCommentController.swift in Sources */,

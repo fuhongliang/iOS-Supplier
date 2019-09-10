@@ -22,7 +22,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/SCLAlertView/SCLAlertView/SCLAlertView.swift"
-            timestampString = "587622014.1673191"
+            timestampString = "589690028.630294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "389"
@@ -53,14 +53,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MYiMei/Procedure/Orders/ViewController/UDistributionOrdersDetailViewController.swift"
-            timestampString = "588500587.863763"
+            filePath = "MYiMei/API/Services/APIServices.swift"
+            timestampString = "589771047.6592489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "getGoodsDetailInfo()"
-            landmarkType = "7">
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "task"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

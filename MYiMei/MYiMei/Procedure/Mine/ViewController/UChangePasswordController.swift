@@ -58,7 +58,7 @@ class UChangePasswordController: UBaseViewController {
             }
             // 返回主线程处理一些事件，更新UI等等
             DispatchQueue.main.async {
-                self.changePassword.getVerificationCodeBtn.setTitle(String (timeCount) + "S重新获取", for: UIControl.State.normal)
+                self.changePassword.getVerificationCodeBtn.setTitle(String(timeCount) + "S重新获取", for: UIControl.State.normal)
             }
         })
         // 启动时间源
@@ -96,9 +96,8 @@ extension UChangePasswordController: UChangePasswordViewDelegate {
     }
     
     @objc func getBack() {
-        self.pressBack()
+        logout()
     }
-
     
     func tapGetVerificationCodeAction() {
         getVerification()

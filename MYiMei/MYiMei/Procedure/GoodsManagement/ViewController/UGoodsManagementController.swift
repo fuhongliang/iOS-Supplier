@@ -44,8 +44,6 @@ class UGoodsManagementController: UBaseViewController {
         super.viewDidLoad()
         edgesForExtendedLayout = .top
         
-        loadCategoryData()
-        
         //获取状态栏的高度
         let statusbarHeight = UIApplication.shared.statusBarFrame.height
         let navigationBarHeight = navigationController?.navigationBar.frame.size.height ?? 0
@@ -67,7 +65,7 @@ class UGoodsManagementController: UBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
+        loadCategoryData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -204,7 +202,6 @@ class UGoodsManagementController: UBaseViewController {
     }
 
     //MARK:删除
-
     @objc private func deleteGoods(goodsIndex:Int) {
         let mch_id: Int = APIUser.shared.user!.mch_id ?? 0
         let access_token: String = getToken()
@@ -217,7 +214,6 @@ class UGoodsManagementController: UBaseViewController {
     }
 
     //MARK:上下架
-
     @objc private func popupGoods(goodsIndex:Int,status:Int) {
         let mch_id: Int = APIUser.shared.user!.mch_id ?? 0
         let access_token: String = getToken()
@@ -289,6 +285,7 @@ extension UGoodsManagementController: UITableViewDelegate, UITableViewDataSource
             cell.subscribeGoodsEditAction = {
                 let vc = UGoodsDetailsController(goodscateList: self.categoryList,goodsId: self.goodsList[indexPath.row].goods_id!)
                 vc.title = "编辑商品"
+                vc.isAddGoods = false
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             cell.subscribeGoodsDeleteAction = {

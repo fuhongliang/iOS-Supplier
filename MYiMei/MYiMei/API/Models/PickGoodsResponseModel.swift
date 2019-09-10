@@ -27,6 +27,7 @@ class PickGoodsModel: Codable {
     var goods_count = Int()
     var create_time = Int()
     var pick_status = Int()
+    var pick_no = String()
     var goods_info : GoodsInfo!
     
 }
