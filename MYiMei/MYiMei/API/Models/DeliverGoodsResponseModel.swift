@@ -25,6 +25,7 @@ class DeliverGoodsModel: Codable {
     var huodan_id = Int()//拣货单ID
     var is_send = Int()//0待发货 1已发货
     var addtime = Int()//添加时间
+    var send_no = String()//配货单号
     var total_price = String()//合计价格
     var num = Int()//商品数量
     var goods_attr_count = Int()//商品分类数

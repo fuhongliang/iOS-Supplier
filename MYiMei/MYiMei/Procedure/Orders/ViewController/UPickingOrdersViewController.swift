@@ -237,6 +237,7 @@ extension UPickingOrdersViewController : UITableViewDelegate, UITableViewDataSou
         alert.addButton("确定",textColor:UIColor.hex(hexString: "#1C98F6")) {
             self.service.setPick(huodanId:pickId, {
                 showHUDInView(text: "拣货成功", inView: self.view)
+                self.refreshOrderData()
             }, { (APIErrorModel) in
                 print(APIErrorModel.msg ?? "........")
             })

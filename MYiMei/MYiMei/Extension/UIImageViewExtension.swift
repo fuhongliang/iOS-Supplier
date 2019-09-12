@@ -10,7 +10,7 @@ import Foundation
 
 extension UIImageView {
     
-    func setImageUrl(url:String?){
+    func load(_ url:String?){
         let url = URL(string: url ?? "")
         self.kf.setImage(with: url)
     }

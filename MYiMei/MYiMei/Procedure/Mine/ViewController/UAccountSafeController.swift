@@ -8,6 +8,14 @@
 
 import UIKit
 
+func logout() -> Void {
+    APIUser.shared.cleanUser()
+    (UIApplication.shared.delegate as! AppDelegate).showLoginView()
+    JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
+        print("注销极光别名儿 \(iResCode),\(String(describing: iAlias)),\(seq)")
+    }, seq: 0)
+}
+
 class UAccountSafeController: UBaseViewController{
     
     let accountSafeView = UAccountSafeView()
@@ -28,7 +36,7 @@ class UAccountSafeController: UBaseViewController{
         let alertController = UIAlertController(title: "温馨提示", message: "是否确定退出登录？", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "确定", style: UIAlertAction.Style.default) {
             (action: UIAlertAction!) -> Void in
-            self.logout()
+            logout()
         }
         let cancelAction = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
         alertController.addAction(okAction)
@@ -36,13 +44,6 @@ class UAccountSafeController: UBaseViewController{
         self.present(alertController, animated: true, completion: nil)
     }
 
-    func logout() -> Void {
-        APIUser.shared.cleanUser()
-        (UIApplication.shared.delegate as! AppDelegate).showLoginView()
-        JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
-            print("注销极光别名儿 \(iResCode),\(String(describing: iAlias)),\(seq)")
-        }, seq: 0)
-    }
     
     func jumpToChangePassword() {
         let vc = UChangePasswordController()

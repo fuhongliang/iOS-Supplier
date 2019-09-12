@@ -22,7 +22,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/SCLAlertView/SCLAlertView/SCLAlertView.swift"
-            timestampString = "587622014.1673191"
+            timestampString = "589690028.630294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "389"
@@ -45,6 +45,22 @@
             endingLineNumber = "543"
             landmarkName = "getInfoCell(index:num:colorIndex:colorArray:labelOne:labelTwo:labelThree:labelFour:labelOneValue:labelTwoValue:labelThreeValue:labelFourValue:textAlignment:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MYiMei/API/Services/APIServices.swift"
+            timestampString = "589771047.6592489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "task"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

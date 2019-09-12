@@ -126,7 +126,7 @@ class UDistributionOrdersCell: UBaseTableViewCell {
         ub.backgroundColor = UIColor.hex(hexString: "#1C98F6")
         ub.layer.cornerRadius = 15
         ub.layer.masksToBounds = true
-        ub.setTitle("完成拣货", for: .normal)
+        ub.setTitle("完成配货", for: .normal)
         ub.setTitleColor(UIColor.white, for: .normal)
         ub.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         return ub
@@ -218,14 +218,14 @@ class UDistributionOrdersCell: UBaseTableViewCell {
         //MARK:订单号
         contentView.addSubview(orderNoLabel)
         orderNoLabel.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.top.equalTo(topView).offset(11)
+            ConstraintMaker.top.equalTo(topView).offset(7)
             ConstraintMaker.left.equalToSuperview().offset(15)
         }
         
         //MARK:生成时间
         contentView.addSubview(generateTime)
         generateTime.snp.makeConstraints { (ConstraintMaker) in
-            ConstraintMaker.top.equalTo(orderNoLabel.snp.bottom).offset(8)
+            ConstraintMaker.top.equalTo(orderNoLabel.snp.bottom)
             ConstraintMaker.left.equalToSuperview().offset(15)
 //            ConstraintMaker.top.equalToSuperview()
             ConstraintMaker.bottom.equalTo(orderLine)
@@ -394,7 +394,7 @@ class UDistributionOrdersCell: UBaseTableViewCell {
             bottomView.snp.makeConstraints{(make)->Void in
                 make.left.equalTo(contentView)
                 make.size.equalTo(1)
-                make.top.equalTo(amountInfoLine.snp.bottom)
+                make.top.equalTo(amountInfoLine)
                 make.bottom.equalTo(contentView)
             }
         } else {
@@ -421,7 +421,7 @@ class UDistributionOrdersCell: UBaseTableViewCell {
         didSet {
             guard let model = model else { return }
             
-            orderNoLabel.text = "配货单号:\(String(model.deliver_id) )"
+            orderNoLabel.text = "配货单号:\(model.send_no)"
             generateTime.text = "生成时间:\(dateForMatter(timeString: model.addtime, join: " "))"
             if model.is_send == 0 {
                 orderStatus.text = "待发货"
@@ -434,6 +434,8 @@ class UDistributionOrdersCell: UBaseTableViewCell {
             }
             
             addressLabel.text = model.district
+            userNameLabel.text = model.name
+            userPhoneLabel.text = model.mobile
             
 //            if (model.list.count != 0){
             goodsNameLabel.text = model.goods_info.name

@@ -55,7 +55,7 @@ func showAlert(title:String = "提示", subTitle:String = "", block:((_ alertVie
     )
     let alertView = SCLAlertView(appearance: style)
     block?(alertView)
-    alertView.showEdit(title, subTitle: subTitle,animationStyle:.noAnimation)
+    alertView.showEdit(title, subTitle: subTitle, colorStyle: 0xFFFFFF, animationStyle:.noAnimation)
 }
 
 var topVC: UIViewController? {

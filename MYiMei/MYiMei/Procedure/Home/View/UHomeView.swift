@@ -260,7 +260,7 @@ class UHomeView: BaseView {
             ConstraintMaker.top.equalTo(salesSegmentedControl.snp.bottom).offset(40)
             ConstraintMaker.width.equalTo(salesWhiteBg.snp.width).dividedBy(2)
         }
-        payOrderNumberLaber.text = "4343"
+        payOrderNumberLaber.text = "0"
         payOrderNumberLaber.textColor = UIColor.black
         payOrderNumberLaber.font = UIFont.systemFont(ofSize: 17)
         self.addSubview(payOrderNumberLaber)
@@ -279,7 +279,7 @@ class UHomeView: BaseView {
             ConstraintMaker.top.equalTo(salesSegmentedControl.snp.bottom).offset(40)
             ConstraintMaker.width.equalTo(salesWhiteBg.snp.width).dividedBy(2)
         }
-        payAmountNumberLaber.text = "43434.00"
+        payAmountNumberLaber.text = "0.00"
         payAmountNumberLaber.textColor = UIColor.black
         payAmountNumberLaber.font = UIFont.systemFont(ofSize: 17)
         self.addSubview(payAmountNumberLaber)

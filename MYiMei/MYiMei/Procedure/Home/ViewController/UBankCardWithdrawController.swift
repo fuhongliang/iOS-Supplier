@@ -32,7 +32,23 @@ class UBankCardWithdrawController: UBaseViewController {
     
     //银行卡提现接口
     @objc func submitCashOut() {
-        let cashOutMoney = Double(mBankCardWithdrawView.withdrawalAmountNumberEdit.text ?? "0")!
+        if mBankCardWithdrawView.withdrawalAmountNumberEdit.text == "" {
+            showHUDInView(text: "请填写提现金额", inView: self.view)
+            return
+        }
+        if mBankCardWithdrawView.bankNumberEdit.text == "" {
+            showHUDInView(text: "请填写银行卡号", inView: self.view)
+            return
+        }
+        if mBankCardWithdrawView.bankNameInput.text == "" {
+            showHUDInView(text: "请填写开户银行", inView: self.view)
+            return
+        }
+        if mBankCardWithdrawView.bankUserNameEdit.text == "" {
+            showHUDInView(text: "请填写开户人姓名", inView: self.view)
+            return
+        }
+        let cashOutMoney = Double(mBankCardWithdrawView.withdrawalAmountNumberEdit.text ?? "") ?? 0
         if cashOutMoney > maxAmount {
             showHUDInView(text: "余额不足", inView: self.view)
             return

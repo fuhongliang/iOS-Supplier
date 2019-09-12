@@ -32,7 +32,7 @@ class UTabBarController: UITabBarController {
         /// 订单管理
         
         addChildViewController(classVC,
-                               title: "拣货清单",
+                               title: "配货清单",
                                image: UIImage(named: "tab_manager_orders"),
                                selectedImage: UIImage(named: "tab_manager_orders_S"))
 

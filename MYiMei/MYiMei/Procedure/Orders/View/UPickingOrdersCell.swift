@@ -158,18 +158,18 @@ class UPickingOrdersCell: UBaseTableViewCell {
         }
         
         //MARK:订单号
-//        contentView.addSubview(orderNoLabel)
-//        orderNoLabel.snp.makeConstraints { (ConstraintMaker) in
-//            ConstraintMaker.top.equalTo(topView).offset(11)
-//            ConstraintMaker.left.equalToSuperview().offset(15)
-//        }
+        contentView.addSubview(orderNoLabel)
+        orderNoLabel.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.top.equalTo(topView).offset(7)
+            ConstraintMaker.left.equalToSuperview().offset(15)
+        }
         
         //MARK:生成时间
         contentView.addSubview(generateTime)
         generateTime.snp.makeConstraints { (ConstraintMaker) in
-//            ConstraintMaker.top.equalTo(orderNoLabel.snp.bottom).offset(8)
+            ConstraintMaker.top.equalTo(orderNoLabel.snp.bottom)
             ConstraintMaker.left.equalToSuperview().offset(15)
-            ConstraintMaker.top.equalToSuperview()
+//            ConstraintMaker.top.equalToSuperview()
             ConstraintMaker.bottom.equalTo(orderLine)
         }
         
@@ -307,8 +307,8 @@ class UPickingOrdersCell: UBaseTableViewCell {
         didSet {
             guard let model = model else { return }
             
-//            orderNoLabel.text = "拣货单号:\(String(model.huodan_id ))"
-            generateTime.text = "生成时间:\(model.create_time)"
+            orderNoLabel.text = "拣货单号:\(model.pick_no)"
+            generateTime.text = "生成时间:\(dateForMatter(timeString: model.create_time, join: " "))"
             if model.pick_status == 0 {
                 orderStatus.text = "待拣货"
                 orderStatus.textColor = UIColor.hex(hexString: "#FF8A17")

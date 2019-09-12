@@ -34,13 +34,7 @@ class UDistributionOrdersDetailViewController : UBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        service.deliverGoodsDetail(deliverId: deliverId, { (DeliverGoodsDetailResponseModel) in
-            self.orderModel = DeliverGoodsDetailResponseModel.data
-            self.isRequestOrderDetail = true
-            self.tableView.reloadData()
-        }) { (APIErrorModel) in
-            
-        }
+        getGoodsDetailInfo()
     }
     
     override func configUI() {
@@ -53,6 +47,17 @@ class UDistributionOrdersDetailViewController : UBaseViewController {
         
     }
     
+    //MARK:获取商品详情信息
+    func getGoodsDetailInfo(){
+        service.deliverGoodsDetail(deliverId: deliverId, { (DeliverGoodsDetailResponseModel) in
+            self.orderModel = DeliverGoodsDetailResponseModel.data
+            self.isRequestOrderDetail = true
+            self.tableView.reloadData()
+        }) { (APIErrorModel) in
+            print(APIErrorModel.msg ?? "请求失败")
+        }
+    }
+    
 }
 
 extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITableViewDataSource {
@@ -62,8 +67,11 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
         if !isRequestOrderDetail {
             return 0 //如果请求未完成则不显示
         }
-        
-        return 3
+        if orderModel.deliver.is_send == 0{
+            return 3
+        } else {
+            return 2
+        }
     }
     
     //MARK:
@@ -73,7 +81,7 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
         if indexPath.row == 0 {
             return 42
         } else if indexPath.section == 0 {
-            return 145
+            return 195
         } else if indexPath.section == 1 {
             return 90
         }
@@ -119,7 +127,9 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
         
         if (indexPath.section == 0 ){
             if (indexPath.row == 0){
-                return getSectionTitleCell(index: indexPath, title: "订单详情")
+                let status = orderModel.deliver.is_send == 0 ? "待发货" : "已发货";
+                let color = UIColor.hex(hexString: orderModel.deliver.is_send == 0 ? "#FF8A17" : "#07D781")
+                return getSectionTitleCell(index: indexPath, title: "订单详情", subTitle: status, subTitleColor: color)
             } else {
                 
                 let labelOneValue = dateForMatter(timeString: orderModel.deliver.addtime, join: " ")
@@ -132,7 +142,7 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
         } else {
             if (indexPath.row == 0){
                 if indexPath.section == 2 {
-                    return getSectionTitleCell(index: indexPath, title: "完成拣货", textDirection: .center)
+                    return getSectionTitleCell(index: indexPath, title: "完成配货", textDirection: .center)
                 }
                 return getSectionTitleCell(index: indexPath, title: "商品信息")
             } else {
@@ -143,16 +153,16 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
         
     }
     
-    
-    //MARK:footerView即将显示的时候的回调
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        
-    }
-    
     //MARK:点击事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             //TODO--完成配货接口
+            self.service.setDeliver(deliverId: deliverId, {
+                showHUDInView(text: "配货成功", inView: self.view)
+                self.getGoodsDetailInfo()
+            }) { (APIErrorModel) in
+                showHUDInView(text: "配货失败", inView: self.view)
+            }
         }
     }
     
@@ -216,7 +226,7 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
     }
     
     //MARK:返回标题的cell （订单详情、商品信息）
-    func getSectionTitleCell(index:IndexPath,title: String, textDirection:NSTextAlignment? = nil) -> UITableViewCell{
+    func getSectionTitleCell(index:IndexPath,title: String, textDirection:NSTextAlignment? = nil, subTitle : String = "" , subTitleColor : UIColor = UIColor.white) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(for: index, cellType: UOrderDetailSectionTitleCell.self)
         guard !isRequestOrderDetail else {
             if textDirection != nil {
@@ -224,6 +234,8 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
                 cell.sectionCellTitle.textColor = UIColor.white
             }
             cell.sectionCellTitle.text = title
+            cell.sectionCellRightTitle.text = subTitle
+            cell.sectionCellRightTitle.textColor = subTitleColor
             return cell
         }
         return cell
@@ -258,6 +270,9 @@ extension UDistributionOrdersDetailViewController : UITableViewDelegate, UITable
             cell.userPhoneLabel.text = userPhone
             cell.addressLabel.text = userAddress
             
+            cell.callTheClient = {
+                callTheClient(phoneNumber: userPhone)
+            }
             
             return cell
         }
