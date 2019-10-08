@@ -46,7 +46,7 @@ class UMechJoinViewController: UBaseViewController,TLPhotosPickerViewControllerD
         LocationHelper.shared.loadLocationFromCache()
         if(LocationHelper.shared.location != nil){
             curLocation = LocationHelper.shared.location!
-            let mStringAddress = curLocation.province! + curLocation.city! + curLocation.district!
+            let mStringAddress = "\(curLocation.province ?? "北京") \(curLocation.city ?? "北京") \(curLocation.district ?? "朝阳")"
             self.mMchJoinView.storeAddressBtn.setTitle(mStringAddress, for: UIControl.State.normal)
             self.mMchJoinView.storeAddressEdit.text = curLocation.addresss
         }

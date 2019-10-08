@@ -34,7 +34,7 @@ class UChooseAddressFromMap: UBaseViewController, MAMapViewDelegate, PlaceAround
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.gray
-        AMapServices.shared().apiKey = "a4547d4dfcc5ba8d2f91cd0a916935ba"
+        AMapServices.shared().apiKey = "55b9b5cb151008fe84eac3e8bbbd3f38"
         initMapView()
         initTableView()
         initSearch()
@@ -70,7 +70,7 @@ class UChooseAddressFromMap: UBaseViewController, MAMapViewDelegate, PlaceAround
     }
 
     func initTableView() {
-        self.tableView = UPlaceAroundTableView(frame: CGRect(x: 0, y: CGFloat(self.mapView.bounds.height - 100), width: self.view.bounds.width, height: screenHeight/2 + 20))
+        self.tableView = UPlaceAroundTableView(frame: CGRect(x: 0, y: CGFloat(self.mapView.bounds.height - 65), width: self.view.bounds.width, height: screenHeight/2 + 5))
         self.tableView.delegate = self;
         self.view.addSubview(self.tableView)
     }
@@ -100,7 +100,7 @@ class UChooseAddressFromMap: UBaseViewController, MAMapViewDelegate, PlaceAround
         self.imageLocated = UIImage(named: "gpssearchbutton")!
         self.imageNotLocate = UIImage(named: "gpsnormal")!
 
-        self.locationBtn = UIButton(frame: CGRect(x: CGFloat(self.mapView.bounds.width - 40), y: CGFloat(self.mapView.bounds.height - 50), width: CGFloat(32), height: CGFloat(32)))
+        self.locationBtn = UIButton(frame: CGRect(x: CGFloat(self.mapView.bounds.width - 40), y: CGFloat(self.mapView.bounds.height - 60), width: CGFloat(32), height: CGFloat(32)))
         self.locationBtn.autoresizingMask = .flexibleTopMargin
         self.locationBtn.backgroundColor = UIColor.white
         self.locationBtn.layer.cornerRadius = 3
@@ -113,7 +113,7 @@ class UChooseAddressFromMap: UBaseViewController, MAMapViewDelegate, PlaceAround
         self.searchTypes = ["住宅", "学校", "楼宇", "商场"]
         self.currentType = self.searchTypes.first!
         self.searchTypeSegment = UISegmentedControl(items: self.searchTypes)
-        self.searchTypeSegment.frame = CGRect(x: CGFloat(10), y: CGFloat(self.mapView.bounds.height - 50), width: CGFloat(self.mapView.bounds.width - 80), height: CGFloat(32))
+        self.searchTypeSegment.frame = CGRect(x: CGFloat(10), y: CGFloat(self.mapView.bounds.height - 60), width: CGFloat(self.mapView.bounds.width - 80), height: CGFloat(32))
         self.searchTypeSegment.layer.cornerRadius = 3
         self.searchTypeSegment.backgroundColor = UIColor.white
         self.searchTypeSegment.autoresizingMask = .flexibleTopMargin
